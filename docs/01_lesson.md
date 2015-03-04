@@ -30,10 +30,10 @@ We'll start off with just one flow and one operation, so create two SLANG files.
 Your file structure should now look like this:
 
 + tutorials
-  + base
-	  + print.sl
-  + hiring
-	  + new_hire.sl 
+    + base
+        + print.sl
+    + hiring
+        + new_hire.sl 
 
 > Note: If your editor requires it for syntax highlighting, you can also use the .sl.yaml and .sl.yml extensions. 
 
