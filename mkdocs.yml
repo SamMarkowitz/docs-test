@@ -1,0 +1,15 @@
+site_name: Slang Docs
+pages:
+- [01_lesson.md, Lessons, '1: Introduction and Setup']
+- [02_lesson.md, Lessons, '2: First Operation']
+- [03_lesson.md, Lessons, '3: First Flow']
+- [04_lesson.md, Lessons, '4: Outputs and Results']
+- [05_lesson.md, Lessons, '5: Default Navigation']
+- [06_lesson.md, Lessons, '6: Handling Failure Results']
+- [07_lesson.md, Lessons, '7: Custom Navigation']
+- [08_lesson.md, Lessons, '8: Input Parameters']
+- [09_lesson.md, Lessons, '9: Subflows']
+- [10_lesson.md, Lessons, '10: For Loop']
+- [11_lesson.md, Lessons, '11: Loop Aggregation']
+- [12_lesson.md, Lessons, '12: Existing Content']
+- [13_lesson.md, Lessons, '13: System Properties']
