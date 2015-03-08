@@ -1,6 +1,7 @@
 site_name: Slang Docs
 site_url: openscore.io
 repo_url: github.com/openscore
+theme: flatly
 pages:
 - [index.md, Home]
 - [01_lesson.md, Lessons, '1: Introduction and Setup']
