@@ -1,12 +1,11 @@
 
-
 #Lesson 13 - System Properties
 
 ##Goal
 In this lesson we'll learn how to use system properties to set the values of inputs.
 
 ##Get Started
-We'll need to create a system property file that contains the values we want to use for the inputs. Let's create a **properties** folder under **/tutorials/** and in there create a file named **bcompany.yaml**. We'll also need to use the system properties somewhere. We'll use then in the  **new\_hire.sl** **generate\_user\_email.sl** files.
+We'll need to create a system property file that contains the values we want to use for the inputs. Let's create a **properties** folder under **tutorials** and in there create a file named **bcompany.yaml**. We'll also need to use the system properties somewhere. We'll use then in the  **new\_hire.sl** **generate\_user\_email.sl** files.
 
 ##System Properties File
 The first thing to take note of is that our system properties file ends with a **.yaml** extension instead of the **.sl** one we've been using for our flows and operations. That's because the system properties files are not compiled and there isn't really anything special about them. They're flat YAML files that contain maps of fully qualified names to their values. 
@@ -42,21 +41,21 @@ First, we'll add a system property to the inputs of `generate_user_email` by add
 ``` 
 Let's see how the system property works in relation to other possible values for the input. To do so, we'll just run the `generate_user_email` operation by itself and test what happens when we experiment with explicitly passing values or not and commenting/uncommenting the default and system property values. 
 
-Try a few of the variations starting with:
+Save the file and try a few of the variations starting with:
 
 ```bash
-run --f <folder path>/tutorials/hiring/generate_user_email.sl --i first_name=john,last_name=doe,domain=company.com,attempt=1
+slang>run --f <folder path>/tutorials/hiring/generate_user_email.sl --i first_name=john,last_name=doe,domain=company.com,attempt=1 --spf <folder path>/tutorials/properties/bcompany.yaml
 ``` 
 
-In general, the order of preference as to which values get bound to the input variable are:
+In general, the order of preference as to which values get bound to the input variable is:
 
 1. Explicitly passed value
 2. System properties
 3. Default value 
 
-If the `overridable` property is set to false, explicitly passed values will not be bound to the input variable.
+However, if the `overridable` property is set to false, explicitly passed values will not be bound to the input variable.
 
-The second place we'll add system properties is to the `new_hire` flow, in the `send_mail` task we created last lesson. We'll have the hostname, port, from and to taken from the system properties file.
+The second place we'll add system properties is to the `new_hire` flow, in the `send_mail` task we created last lesson. We'll have the `hostname`, `port`, `from` and `to` taken from the system properties file.
 
 ```yaml
     - send_mail:
@@ -73,20 +72,23 @@ The second place we'll add system properties is to the `new_hire` flow, in the `
             - subject: "'New Hire: ' + first_name + ' ' + last_name"
             - body: >
                 'Created address: ' + address + ' for: ' + first_name + ' ' + last_name + '<br>' +
-                'Missing items: ' + missing + ' Cost of ordered items:' + cost
+                'Missing items: ' + missing + ' Cost of ordered items: ' + str(total_cost)
+        navigate:
+          FAILURE: FAILURE
+          SUCCESS: SUCCESS
 ```
 
-Notice that in this case we're using the system properties on the sending end, rather than receiving end, of an input binding.
+Notice that in this case we're using the system properties on the sending end, rather than then receiving end, of an input binding.
 
-##Run
-We can run the flow now and see that the values are being taken from the system properties file we specify. If we want to swap out the values with another set, all we have to do is point to a different system properties file.
+##Run It
+We can save the files and run the flow to see that the values are being taken from the system properties file we specify. If we want to swap out the values with another set, all we have to do is point to a different system properties file.
 
 ```bash
 run --f <folder path>/tutorials/hiring/new_hire.sl --cp <folder path>/tutorials/base,<folder path>/tutorials/hiring,<content folder path>/base --i first_name=john,last_name=doe --spf <folder path>/tutorials/properties/bcompany.yaml
 ```
 
 ##Up Next
-In the next lesson we'll see how to use third party Python modules in your operation's actions.
+In the next lesson we'll see how to use 3<sup>rd</sup> Python packages in your operation's actions.
 
 ##New Code - Complete
 
@@ -113,6 +115,8 @@ flow:
     - total_cost:
         default: 0
         overridable: false
+    - order_map: >
+        {'laptop': 1000, 'docking station':200, 'monitor': 500, 'phone': 100}
 
   workflow:
     - print_start:
@@ -142,17 +146,24 @@ flow:
 
     - get_equipment:
         loop:
-          for: item, price in {'laptop': 1000, 'docking station':200, 'monitor': 500, 'phone': 100}.items()
+          for: item, price in order_map.items()
           do:
             hiring.order:
               - item
               - price
           publish:
             - missing: fromInputs['missing'] + unavailable
-            - total_cost: fromInputs['missing'] + cost
+            - total_cost: fromInputs['total_cost'] + cost
         navigate:
           AVAILABLE: print_finish
           UNAVAILABLE: print_finish
+
+    - print_finish:
+        do:
+          base.print:
+            - text: >
+                'Created address: ' + address + ' for: ' + first_name + ' ' + last_name + '\n' +
+                'Missing items: ' + missing + ' Cost of ordered items: ' + str(total_cost)
 
     - send_mail:
         do:
@@ -168,20 +179,16 @@ flow:
             - subject: "'New Hire: ' + first_name + ' ' + last_name"
             - body: >
                 'Created address: ' + address + ' for: ' + first_name + ' ' + last_name + '<br>' +
-                'Missing items: ' + missing + ' Cost of ordered items:' + cost
-
-    - print_finish:
-        do:
-          base.print:
-            - text: >
-                'Created address: ' + address + ' for: ' + first_name + ' ' + last_name + '\n' +
-                'Missing items: ' + missing + ' Cost of ordered items:' + cost
+                'Missing items: ' + missing + ' Cost of ordered items:' + str(total_cost)
+        navigate:
+          FAILURE: FAILURE
+          SUCCESS: SUCCESS
 
     - on_failure:
-        - print_fail:
-            do:
-              base.print:
-                - text: "'Failed to create address for: ' + first_name + ' ' + last_name"
+      - print_fail:
+          do:
+            base.print:
+              - text: "'Failed to create address for: ' + first_name + ' ' + last_name"
 ```
 
 **generate_user_email.sl**
@@ -205,7 +212,6 @@ operation:
 
   action:
     python_script: |
-      print 'attempt: ' + str(attempt)
       attempt = int(attempt)
       if attempt == 1:
         address = first_name[0:1] + '.' + last_name + '@' + domain
@@ -224,3 +230,13 @@ operation:
     - FAILURE: address == ''
     - SUCCESS
 ```
+
+**bcompany.yaml**
+```yaml
+tutorials.hiring.domain: bcompany.com
+tutorials.hiring.hostname: <host name>
+tutorials.hiring.port: '<port>'
+tutorials.hiring.system_address: <system email>
+tutorials.hiring.hr_address: <hr email>
+```
+**Note:** You need to substitute the values in angle brackets (<>) to work for your email host.

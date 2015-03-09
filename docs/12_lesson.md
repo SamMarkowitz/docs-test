@@ -1,16 +1,15 @@
-
 #Lesson 12 - Existing Content
 
 ##Goal
-In this lesson we'll learn how to integrate ready-made content into our flow.
+In this lesson we'll learn how to easily integrate ready-made content into our flow.
 
 ##Get Started
-Instead of printing that our flow has completed, let's send an email to HR to let them know that the new hire's email address has been created and the status of the new hire's equipment order. If you're using a pre-built CLI you'll have a **/content** folder that contains all of the ready-made content.
+Instead of printing that our flow has completed, let's send an email to HR to let them know that the new hire's email address has been created and notify them as to the status of the new hire's equipment order. If you're using a pre-built CLI you'll have a **content** folder that contains all of the ready-made content. If you've built the CLI from the source code, you'll have to get the content mentioned below from the GitHub [repository](https://github.com/openscore/slang-content) and point to the right location when running the flow.
 
 ##Ready-Made Operation
-We'll use the **send\_mail** operation which is found in the **/base/mail** folder. All ready-made content begins with a commented explanation of its purpose and its inputs, outputs and results.
+We'll use the `send_mail` operation which is found in the **base/mail** folder. All ready-made content begins with a commented explanation of its purpose and its inputs, outputs and results.
 
-Here's the documentation of **send\_mail**:
+Here's the documentation for the `send_mail` operation:
 
 ```yaml
 ####################################################
@@ -42,10 +41,10 @@ Here's the documentation of **send\_mail**:
 
 When calling the operation, we'll need to pass values for all the arguments listed in the documentation that are not optional.
 
-You might notice that in general operation and flow inputs are named using snake_case. This is in keeping with Python conventions, especially when using an operation that has a `python_script` type action. The `send_mail` operation though, uses a `java_action` so its inputs follow the Java camelCase convention.
+You might have noticed that operation and flow inputs are generally named using snake_case. This is in keeping with Python conventions, especially when using an operation that has a `python_script` type action. The `send_mail` operation though, uses a `java_action` so its inputs follow the Java camelCase convention.
 
 ##Imports
-First, we'll need to set up an import alias for the new operation since it doesn't reside where our other operations and subflow do.
+First, we'll need to set up an import alias for the new operation since it doesn't reside where our other operations and subflows do.
 
 ```yaml
 imports:
@@ -55,25 +54,27 @@ imports:
 ```
 
 ##Task
-Then, all we really need to do is create a task in our flow that will call the `send_mail` operation. We need to pass a host, port, from, to, subject and body. You'll need to substitute the values in angle brackets (`<>`) to work for your email host. Notice that the body value is taken directly from the `print_finish` task with the slight change of turning the `\n` into a `<br>` since the `htmlEmail` input defaults to true.  
+Then, all we really need to do is create a task in our flow that will call the `send_mail` operation. Let's put it right after the `print_finish` operation. We need to pass a host, port, from, to, subject and body. You'll need to substitute the values in angle brackets (`<>`) to work for your email host. Notice that the body value is taken directly from the `print_finish` task with the slight change of turning the `\n` into a `<br>` since the `htmlEmail` input defaults to true.  
 
 ```yaml
     - send_mail:
         do:
           mail.send_mail:
-            - hostname: "'<hostname>'"
-            - port: <port>
-            - from: <email from>
-            - to: <email to>
+            - hostname: "'<host>'"
+            - port: "'<port>'"
+            - from: "'<from>'"
+            - to: "'<to>'"
             - subject: "'New Hire: ' + first_name + ' ' + last_name"
             - body: >
                 'Created address: ' + address + ' for: ' + first_name + ' ' + last_name + '<br>' +
-                'Missing items: ' + missing + ' Cost of ordered items:' + cost
+                'Missing items: ' + missing + ' Cost of ordered items: ' + str(total_cost)
+        navigate:
+          FAILURE: FAILURE
+          SUCCESS: SUCCESS
 ```
 
-##Run
-We can run the flow now and see that the ordering takes place, the proper information is aggregated and then it is printed.
-
+##Run It
+We can save the files, run the flow and check that an email was sent with the proper information.
 ```bash
 run --f <folder path>/tutorials/hiring/new_hire.sl --cp <folder path>/tutorials/base,<folder path>/tutorials/hiring,<content folder path>/org/openscore/slang/base --i first_name=john,last_name=doe
 ```
@@ -106,6 +107,8 @@ flow:
     - total_cost:
         default: 0
         overridable: false
+    - order_map: >
+        {'laptop': 1000, 'docking station':200, 'monitor': 500, 'phone': 100}
 
   workflow:
     - print_start:
@@ -135,42 +138,45 @@ flow:
 
     - get_equipment:
         loop:
-          for: item, price in {'laptop': 1000, 'docking station':200, 'monitor': 500, 'phone': 100}.items()
+          for: item, price in order_map.items()
           do:
             hiring.order:
               - item
               - price
           publish:
             - missing: fromInputs['missing'] + unavailable
-            - total_cost: fromInputs['missing'] + cost
+            - total_cost: fromInputs['total_cost'] + cost
         navigate:
           AVAILABLE: print_finish
           UNAVAILABLE: print_finish
-
-    - send_mail:
-        do:
-          mail.send_mail:
-            - hostname: "'<host name>'"
-            - port: <port>
-            - from: <email from>
-            - to: <email to>
-            - subject: "'New Hire: ' + first_name + ' ' + last_name"
-            - body: >
-                'Created address: ' + address + ' for: ' + first_name + ' ' + last_name + '<br>' +
-                'Missing items: ' + missing + ' Cost of ordered items:' + cost
 
     - print_finish:
         do:
           base.print:
             - text: >
                 'Created address: ' + address + ' for: ' + first_name + ' ' + last_name + '\n' +
-                'Missing items: ' + missing + ' Cost of ordered items:' + cost
+                'Missing items: ' + missing + ' Cost of ordered items: ' + str(total_cost)
+
+    - send_mail:
+        do:
+          mail.send_mail:
+            - hostname: "'<host>'"
+            - port: "'<port>'"
+            - from: "'<from>'"
+            - to: "'<to>'"
+            - subject: "'New Hire: ' + first_name + ' ' + last_name"
+            - body: >
+                'Created address: ' + address + ' for: ' + first_name + ' ' + last_name + '<br>' +
+                'Missing items: ' + missing + ' Cost of ordered items: ' + str(total_cost)
+        navigate:
+          FAILURE: FAILURE
+          SUCCESS: SUCCESS
 
     - on_failure:
-        - print_fail:
-            do:
-              base.print:
-                - text: "'Failed to create address for: ' + first_name + ' ' + last_name"
+      - print_fail:
+          do:
+            base.print:
+              - text: "'Failed to create address for: ' + first_name + ' ' + last_name"
 ```
 
 

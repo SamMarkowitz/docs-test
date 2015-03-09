@@ -5,10 +5,10 @@
 In this lesson we'll learn how to aggregate output from a loop.
 
 ##Get Started
-We'll create a new task to simulate ordering equipment. Internally it will randomly decide whether a piece of equipment is available or not. Then we'll run that task in a loop from the main flow and record the cost of the ordered equipment and which items were unavailable. Create a new file named **order.sl** to house the new operation we'll write and get the **new_hire.sl** file ready because we will need to add a task to the main flow.
+We'll create a new task to simulate ordering equipment. Internally it will randomly decide whether a piece of equipment is available or not. Then we'll run that task in a loop from the main flow and record the cost of the ordered equipment and which items were unavailable. Create a new file named **order.sl** in the **tutorials/hiring** folder to house the new operation we'll write and get the **new_hire.sl** file ready because we'll need to add a task to the main flow.
 
 ##Operation
-The order operation looks very similar to our `check\_availability` operation. It uses a random number to simulate whether a given item is available. If the item is available, it will return the `cost` of the item as one output and the `unavailable` output will be empty. If the item is unavailable, it will return `0` for the cost of the item and the name of the item in the `unavailable` output.
+The `order` operation, as we'll call it, looks very similar to our `check_availability` operation. It uses a random number to simulate whether a given item is available. If the item is available, it will return the `cost` of the item as one output and the `unavailable` output will be empty. If the item is unavailable, it will return `0` for the cost of the item and the name of the item in the `unavailable` output.
 
 ```yaml
 namespace: tutorials.hiring
@@ -35,24 +35,24 @@ operation:
     - cost: price
 
   results:
-    - UNAVAILABLE: rand == '0'
+    - UNAVAILABLE: rand == 0
     - AVAILABLE
 ```
 
 ##Task
-First, we'll go back to our flow and create a task to call our operation in a loop. This time we'll loop through a map of items and their prices.
+First, we'll go back to our flow and create a task, between `create_email_address` and `print_finish`, to call our operation in a loop. This time we'll loop through a map of items and their prices.
 
 ```yaml
     - get_equipment:
         loop:
-          for: item, price in {'laptop': 1000, 'docking station':200, 'monitor': 500, 'phone': 100}.items() 
+          for: item, price in order_map.items()
           do:
             hiring.order:
               - item
               - price
 ```
 
-Each time through the loop we want to aggregate the data that is output. To do so we'll need to create some variables first. We'll create them in the loop's `inputs` , define them as `overridable` and give them default values to start with. 
+We'll also need to create some input variables first. One variable, that we'll call `order_map`, will contain the map we're looping on. Also, each time through the loop we want to aggregate the data that is output.  We'll create two variables, `missing` and `total_cost`, for this purpose, defining them as `overridable` and giving them default values to start with. 
 
 ```yaml
   inputs:
@@ -66,14 +66,16 @@ Each time through the loop we want to aggregate the data that is output. To do s
     - total_cost:
         default: 0
         overridable: false
+    - order_map: >
+        {'laptop': 1000, 'docking station':200, 'monitor': 500, 'phone': 100}
 ```
 
-Now we can perform the aggregation. We'll add the output variables to the ones we just created in the flow `inputs` and publish them back to the flow. This will run for each step after the operation has completed. Notice the usage of the `fromInputs['']` syntax to indicate that we're referring to the variable that exists on the flow level and not a variable with the same name that might have been returned from the operation.
+Now we can perform the aggregation. In  `get_equipment` task's publish section, we'll add the output variables to the ones we just created in the flow inputs and publish them back to the flow. This will run for each iteration after the operation has completed, aggregating all the data. Notice the usage of the `fromInputs['']` syntax to indicate that we're referring to the variable that exists on the flow level and not a variable with the same name that might have been returned from the operation.
 
 ```yaml
           publish:
             - missing: fromInputs['missing'] + unavailable
-            - total_cost: fromInputs['missing'] + cost
+            - total_cost: fromInputs['total_cost'] + cost
 ```
 
 Finally we have to rewire all the navigation logic to take into account our new task. 
@@ -81,7 +83,7 @@ Finally we have to rewire all the navigation logic to take into account our new 
 We need to change the `create_email_address` task to forward successful email address creations to `get_equipment`.
 
 ```yaml
-    navigate:
+        navigate:
           CREATED: get_equipment
           UNAVAILABLE: print_fail
           FAILURE: print_fail
@@ -104,11 +106,12 @@ The last thing left to do is print out a finish message that also reflects the s
           base.print:
             - text: >
                 'Created address: ' + address + ' for: ' + first_name + ' ' + last_name + '\n' +
-                'Missing items: ' + missing + ' Cost of ordered items:' + cost
+                'Missing items: ' + missing + ' Cost of ordered items: ' + str(total_cost)
+
 ``` 
 
-##Run
-We can run the flow now and see that the ordering takes place, the proper information is aggregated and then it is printed.
+##Run It
+We can save the files, run the flow and see that the ordering takes place, the proper information is aggregated and then it is printed.
 
 ```bash
 run --f <folder path>/tutorials/hiring/new_hire.sl --cp <folder path>/tutorials/base,<folder path>/tutorials/hiring --i first_name=john,middle_name=e,last_name=doe
@@ -141,6 +144,8 @@ flow:
     - total_cost:
         default: 0
         overridable: false
+    - order_map: >
+        {'laptop': 1000, 'docking station':200, 'monitor': 500, 'phone': 100}
 
   workflow:
     - print_start:
@@ -170,14 +175,14 @@ flow:
 
     - get_equipment:
         loop:
-          for: item, price in {'laptop': 1000, 'docking station':200, 'monitor': 500, 'phone': 100}.items()
+          for: item, price in order_map.items()
           do:
             hiring.order:
               - item
               - price
           publish:
             - missing: fromInputs['missing'] + unavailable
-            - total_cost: fromInputs['missing'] + cost
+            - total_cost: fromInputs['total_cost'] + cost
         navigate:
           AVAILABLE: print_finish
           UNAVAILABLE: print_finish
@@ -187,14 +192,13 @@ flow:
           base.print:
             - text: >
                 'Created address: ' + address + ' for: ' + first_name + ' ' + last_name + '\n' +
-                'Missing items: ' + missing + ' Cost of ordered items:' + cost
+                'Missing items: ' + missing + ' Cost of ordered items: ' + str(total_cost)
 
     - on_failure:
-        - print_fail:
-            do:
-              base.print:
-                - text: "'Failed to create address for: ' + first_name + ' ' + last_name"
-
+      - print_fail:
+          do:
+            base.print:
+              - text: "'Failed to create address for: ' + first_name + ' ' + last_name"
 ```
 
 **order.sl**
@@ -207,8 +211,7 @@ operation:
 
   inputs:
     - item
-    - price:
-        required: false
+    - price
 
   action:
     python_script: |
@@ -225,6 +228,6 @@ operation:
     - cost: price
 
   results:
-    - UNAVAILABLE: rand == '0'
+    - UNAVAILABLE: rand == 0
     - AVAILABLE
 ```
