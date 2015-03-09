@@ -4,7 +4,7 @@
 In this lesson we'll write a bit of a more complex operation that returns an output and results.
 
 ##Get Started
-Let's create a new file in the **/tutorials/hiring** folder named **check\_availability.sl** in which we'll house an operation to check whether a given email address is available.
+Let's create a new file in the **tutorials/hiring** folder named **check\_availability.sl** in which we'll house an operation to check whether a given email address is available.
 
 We'll also start off our new operation in much the same way we did with the print operation. We'll put in a `namespace`, the `operation` key, the name of the operation and an input.
 

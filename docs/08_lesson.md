@@ -5,7 +5,7 @@
 In this lesson we'll learn how to change the way inputs behave using input properties. 
 
 ##Get Started
-It's time to create a new operation. Create a new file in the **/tutorials/hiring** folder called **generate\_user\_email.sl**. In here we'll create an operation that takes in some user information and produces an email address for that user. We'll write it so that it will take in which attempt this is at creating an email address for this user. That way we can use it in conjunction with our `check_availability` operation. Eventually, we'll generate an address, check its availability, and if it's unavailable we'll do it all over again. The following code does not present any new concepts. We will use it as a starting point for a discussion on input properties.
+It's time to create a new operation. Create a new file in the **tutorials/hiring** folder called **generate\_user\_email.sl**. In here we'll create an operation that takes in some user information and produces an email address for that user. We'll write it so that it will take in which attempt this is at creating an email address for this user. That way we can use it in conjunction with our `check_availability` operation. Eventually, we'll generate an address, check its availability, and if it's unavailable we'll do it all over again. The following code does not present any new concepts. We will use it as a starting point for a discussion on input properties.
 
 ```yaml
 namespace: tutorials.hiring
@@ -157,7 +157,7 @@ operation:
     - attempt
 ```
 
-We can save the file and then run the flow using the same command as above. You'll notice that no matter what is passed to the `domain` input, `acompany.com` is what ends up in the email address. That's exactly what we want, but obviously there is no reason to pass values to the domain variable anymore. So let's just remove it from the flow inputs and the generate\_address task.
+We can save the file and then run the flow using the same command as above. You'll notice that no matter what is passed to the `domain` input, `acompany.com` is what ends up in the email address. That's exactly what we want, but obviously there is no reason to pass values to the domain variable anymore. So let's just remove it from the flow inputs and the `generate_address` task.
 
 ```yaml
 flow:

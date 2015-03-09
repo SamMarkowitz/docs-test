@@ -35,7 +35,7 @@ Your file structure should now look like this:
   + hiring
 	  + new_hire.sl 
 
-> Note: If your editor requires it for syntax highlighting, you can also use the .sl.yaml and .sl.yml extensions. 
+> Note: If your editor requires it for syntax highlighting, you can also use the **.sl.yaml** and **.sl.yml** extensions. 
 
 ##Up Next
 In the next lesson we'll write and run our first operation.

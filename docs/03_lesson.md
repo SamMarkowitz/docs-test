@@ -7,7 +7,7 @@ In this lesson we'll write a simple flow that will call the print operation. We'
 Let's open the **new_hire.sl** file and start writing the new hire flow. We'll build it one step at a time. So for now, all it will do is call the print operation we wrote in the previous lesson.
 
 ##Namespace
-Just like in our operation file, we need to start the flow file with a namespace. Since we're storing **new_hire.sl** in the **/tutorials/hiring** folder the namespace must reflect that.
+Just like in our operation file, we need to start the flow file with a namespace. Since we're storing **new_hire.sl** in the **tutorials/hiring** folder the namespace must reflect that.
 
 ```yaml
 namespace: tutorials.hiring

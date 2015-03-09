@@ -7,7 +7,7 @@ In this lesson we'll write our first operation. We'll learn the basic structure 
 Let's open the **print.sl** file and start writing the print operation. The print operation is as simple as they get. It just takes in a input and prints it out using Python.
 
 ##Namespace
-All SLANG files start with a namespace which mirrors the folder structure in which the files are found. In our case we've put **print.sl** in the **/tutorials/base** folder so our namespace should reflect that.
+All SLANG files start with a namespace which mirrors the folder structure in which the files are found. In our case we've put **print.sl** in the **tutorials/base** folder so our namespace should reflect that.
 
 ```yaml
 namespace: tutorials.base

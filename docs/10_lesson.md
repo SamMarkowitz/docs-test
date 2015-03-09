@@ -52,6 +52,7 @@ case|`middle_name`|list|iterations|flow result
 3|no|[1,2,3]|3|`FAILURE` 
 4|yes|[1,2,3]|3|`FAILURE` or `SUCCESS`
 
+
 **For all cases:** For `attempt` `1` and `2`  the `create_user_email` subflow runs it will return a result of either `CREATED` or `UNAVAILABLE` because the `generate_user_email` operation will return a result of `SUCCESS`. Since neither of those are `FAILURE`, the loop will continue to run. 
 
 **Case 1:** Since the `middle_name` is not present, the `generate_user_email` operation will return a result of `FAILURE` when the `3` is passed to its `attempt` input. The loop exits on the `FAILURE` result by default and goes to its navigate section which forwards it to `print_fail`. Since `print_fail` is the `on_failure` task, it ends the flow with a result of `FAILURE`.
