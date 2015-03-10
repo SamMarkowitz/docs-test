@@ -5,7 +5,7 @@
 In this lesson we'll learn how to use subflows. 
 
 ##Get Started
-We'll start by creating a new file in the **/tutorials/hiring** folder called **create\_user\_email.sl** to hold our subflow. A subflow is a flow itself and therefore it follows all the regular flow syntax. 
+We'll start by creating a new file in the **tutorials/hiring** folder called **create\_user\_email.sl** to hold our subflow. A subflow is a flow itself and therefore it follows all the regular flow syntax. 
 
 ##Move Code
 Now we'll steal a bunch of the code that currently sits in **new_hire.sl**. Let's take everything up until the `workflow` key and copy it into the new flow and make a couple of changes. First, we won't need the import reference to `tutorials.base`, so we can just delete it. Next, we'll change the name of the flow to `create_user_email`. That should do it for this section.

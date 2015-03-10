@@ -7,18 +7,18 @@ In this lesson we'll outline our overall goals for this tutorial and set up our 
 In this tutorial we will build a flow that represents the process a new hire must go through to get set up to work. We will build the flow one piece at a time with the goal of highlighting the features of SLANG. We recommend you follow along with the process, writing the flows and operations we will build on your own machine and running them using the SLANG CLI. To do so, you'll need a text editor to create the SLANG files and  the SLANG CLI to run them.  
 
 ##YAML
-SLANG is a YAML-based language so it's important to know a bit about YAML before getting started. If you're new to YAML, you can take a look at the [YAML Overview](#/docs#yaml-overview) section of the SLANG documentation to familiarize yourself with its main structure. This tutorial will also include **YAML Notes** to guide you through potential trouble areas.
+SLANG is a YAML-based language so it's important to know a bit about YAML before getting started. If you're new to YAML, you can take a look at the [YAML Overview](http://www.openscore.io/#/docs#yaml-overview) section of the SLANG documentation to familiarize yourself with its main structure. This tutorial will also include **YAML Notes** to guide you through potential trouble areas.
 
 ##Copy/Pasting Code
 Because proper indentation is so important in YAML, take care to copy and paste the code examples at their proper indentation levels. The examples are all written at the indentation within the whole that they are a part of.
 
 ##Prerequisites
-This tutorial uses the SLANG CLI to run flows. See the [SLANG CLI](#/docs#slang-cli) section of the documentation for instructions on how to download and run the CLI.
+This tutorial uses the SLANG CLI to run flows. See the [SLANG CLI](http://www.openscore.io/#/docs#slang-cli) section of the documentation for instructions on how to download and run the CLI.
 
-Although SLANG files can be composed in any text editor, using a modern code editor with support for YAML syntax highlighting is recommended. See the [Sublime Integration](#/docs#sublime-integration) section of the documentation for instructions on how to download, install and use the SLANG snippets for Sublime Text.
+Although SLANG files can be composed in any text editor, using a modern code editor with support for YAML syntax highlighting is recommended. See the [Sublime Integration](http://www.openscore.io/#/docs#sublime-integration) section of the documentation for instructions on how to download, install and use the SLANG snippets for Sublime Text.
 
 ##More Information
-For more information on any of the topics covered in this tutorial, see the [SLANG documentation](#/docs#slang).
+For more information on any of the topics covered in this tutorial, see the [SLANG documentation](http://www.openscore.io/#/docs#slang).
 
 ##Setup
 Now we'll setup our folder structure to get ready to write our flows and operations.
@@ -30,10 +30,10 @@ We'll start off with just one flow and one operation, so create two SLANG files.
 Your file structure should now look like this:
 
 + tutorials
-  + base
-	  + print.sl
-  + hiring
-	  + new_hire.sl 
+    + base
+        + print.sl
+    + hiring
+        + new_hire.sl 
 
 > Note: If your editor requires it for syntax highlighting, you can also use the **.sl.yaml** and **.sl.yml** extensions. 
 

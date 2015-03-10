@@ -4,7 +4,7 @@
 In this lesson we'll learn how to easily integrate ready-made content into our flow.
 
 ##Get Started
-Instead of printing that our flow has completed, let's send an email to HR to let them know that the new hire's email address has been created and notify them as to the status of the new hire's equipment order. If you're using a pre-built CLI you'll have a **content** folder that contains all of the ready-made content. If you've built the CLI from the source code, you'll have to get the content mentioned below from the GitHub [repository](https://github.com/openscore/slang-content) and point to the right location when running the flow.
+Instead of printing that our flow has completed, let's send an email to HR to let them know that the new hire's email address has been created and notify them as to the status of the new hire's equipment order. If you're using a pre-built CLI you'll have a folder named **content** that contains all of the ready-made content. If you've built the CLI from the source code, you'll have to get the content mentioned below from the GitHub [repository](https://github.com/openscore/slang-content) and point to the right location when running the flow.
 
 ##Ready-Made Operation
 We'll use the `send_mail` operation which is found in the **base/mail** folder. All ready-made content begins with a commented explanation of its purpose and its inputs, outputs and results.
