@@ -44,7 +44,7 @@ Let's see how the system property works in relation to other possible values for
 Save the file and try a few of the variations starting with:
 
 ```bash
-slang>run --f <folder path>/tutorials/hiring/generate_user_email.sl --i first_name=john,last_name=doe,domain=company.com,attempt=1 --spf <folder path>/tutorials/properties/bcompany.yaml
+run --f <folder path>/tutorials/hiring/generate_user_email.sl --i first_name=john,last_name=doe,domain=company.com,attempt=1 --spf <folder path>/tutorials/properties/bcompany.yaml
 ``` 
 
 In general, the order of preference as to which values get bound to the input variable is:
@@ -99,7 +99,7 @@ namespace: tutorials.hiring
 imports:
   base: tutorials.base
   hiring: tutorials.hiring
-  mail: org.openscore.slang.base.mail
+  mail: io.cloudslang.cloudslang.base.mail
 
 flow:
   name: new_hire
