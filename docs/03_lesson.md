@@ -14,7 +14,7 @@ namespace: tutorials.hiring
 ```
 
 ##Imports
-After the namespace you can list the namespace of any SLANG files that you will need to reference in your flow. Our flow will need to reference the operation in **print.sl**, so we'll add the namespace from that file to the `imports` key.  We map an alias that we will use as a reference in the flow to the namespace we are importing. Let's call the alias `base`.
+After the namespace you can list the namespace of any CloudSlang files that you will need to reference in your flow. Our flow will need to reference the operation in **print.sl**, so we'll add the namespace from that file to the `imports` key.  We map an alias that we will use as a reference in the flow to the namespace we are importing. Let's call the alias `base`.
 
 ```yaml
 imports:
