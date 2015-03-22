@@ -1,6 +1,6 @@
-site_name: Slang Docs
-site_url: openscore.io
-repo_url: github.com/openscore
+site_name: CloudSlang Docs
+site_url: cloudslang.io
+repo_url: github.com/cloudslang
 theme: flatly
 pages:
 - [index.md, Home]
