@@ -9,12 +9,12 @@ We'll be installing our 3<sup>rd</sup> party Python package in this lesson using
 
 The folder structure where the CLI executable is should look something like this:
 
-+ slang
++ cloudslang
     + bin
-	    + slang
-	    + slang.bat
+	    + cloudslang
+	    + cloudslang.bat
 	+ content (if using pre-built CLI)
-		+ includes all the ready-made slang content
+		+ includes all the ready-made CloudSlang content
 	+ lib
 		+ includes all the Java .jar files for the CLI
 	+ python-lib
@@ -117,7 +117,7 @@ namespace: tutorials.hiring
 imports:
   base: tutorials.base
   hiring: tutorials.hiring
-  mail: org.openscore.slang.base.mail
+  mail: io.cloudslang.cloudslang.base.mail
 
 flow:
   name: new_hire
