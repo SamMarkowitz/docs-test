@@ -4,7 +4,7 @@
 In this lesson we'll learn how to easily integrate ready-made content into our flow.
 
 ##Get Started
-Instead of printing that our flow has completed, let's send an email to HR to let them know that the new hire's email address has been created and notify them as to the status of the new hire's equipment order. If you're using a pre-built CLI you'll have a folder named **content** that contains all of the ready-made content. If you've built the CLI from the source code, you'll have to get the content mentioned below from the GitHub [repository](https://github.com/openscore/slang-content) and point to the right location when running the flow.
+Instead of printing that our flow has completed, let's send an email to HR to let them know that the new hire's email address has been created and notify them as to the status of the new hire's equipment order. If you're using a pre-built CLI you'll have a folder named **content** that contains all of the ready-made content. If you've built the CLI from the source code, you'll have to get the content mentioned below from the GitHub [repository](https://github.com/cloudslang/cloudslang-content) and point to the right location when running the flow.
 
 ##Ready-Made Operation
 We'll use the `send_mail` operation which is found in the **base/mail** folder. All ready-made content begins with a commented explanation of its purpose and its inputs, outputs and results.
@@ -50,7 +50,7 @@ First, we'll need to set up an import alias for the new operation since it doesn
 imports:
   base: tutorials.base
   hiring: tutorials.hiring
-  mail: org.openscore.slang.base.mail
+  mail: io.cloudslang.cloudslang.base.mail
 ```
 
 ##Task
@@ -76,7 +76,7 @@ Then, all we really need to do is create a task in our flow that will call the `
 ##Run It
 We can save the files, run the flow and check that an email was sent with the proper information.
 ```bash
-run --f <folder path>/tutorials/hiring/new_hire.sl --cp <folder path>/tutorials/base,<folder path>/tutorials/hiring,<content folder path>/org/openscore/slang/base --i first_name=john,last_name=doe
+run --f <folder path>/tutorials/hiring/new_hire.sl --cp <folder path>/tutorials/base,<folder path>/tutorials/hiring,<content folder path>/io/cloudslang/cloudslang/base --i first_name=john,last_name=doe
 ```
 
 ##Up Next
@@ -91,7 +91,7 @@ namespace: tutorials.hiring
 imports:
   base: tutorials.base
   hiring: tutorials.hiring
-  mail: org.openscore.slang.base.mail
+  mail: io.cloudslang.cloudslang.base.mail
 
 flow:
   name: new_hire
