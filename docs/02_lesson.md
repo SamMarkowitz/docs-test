@@ -7,7 +7,7 @@ In this lesson we'll write our first operation. We'll learn the basic structure 
 Let's open the **print.sl** file and start writing the print operation. The print operation is as simple as they get. It just takes in a input and prints it out using Python.
 
 ##Namespace
-All SLANG files start with a namespace which mirrors the folder structure in which the files are found. In our case we've put **print.sl** in the **tutorials/base** folder so our namespace should reflect that.
+All CloudSlang files start with a namespace which mirrors the folder structure in which the files are found. In our case we've put **print.sl** in the **tutorials/base** folder so our namespace should reflect that.
 
 ```yaml
 namespace: tutorials.base
@@ -34,7 +34,7 @@ After the name, if the operation takes any inputs, they are listed under the `in
 > YAML Note: The `inputs` key maps to a list of inputs. In YAML, a list is signified by prepending a hypen and a space (- ) to each item.
 
 ##Action
-Finally, we've reached the core of the operation, the action. There are two types of actions in SLANG, Python-based actions and Java-based actions. We'll start off by creating a Python action that simply prints the text that was input. To do so, we add an `action` key that maps to the action contents. Since our action is a python script we add a key:value pair with `python_script` as the key and the script itself as the value.
+Finally, we've reached the core of the operation, the action. There are two types of actions in CloudSlang, Python-based actions and Java-based actions. We'll start off by creating a Python action that simply prints the text that was input. To do so, we add an `action` key that maps to the action contents. Since our action is a python script we add a key:value pair with `python_script` as the key and the script itself as the value.
 
 ```yaml
   action:
