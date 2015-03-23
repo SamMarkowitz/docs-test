@@ -11,8 +11,8 @@ The folder structure where the CLI executable is should look something like this
 
 + cloudslang
     + bin
-	    + cloudslang
-	    + cloudslang.bat
+	    + cslang
+	    + cslang.bat
 	+ content (if using pre-built CLI)
 		+ includes all the ready-made CloudSlang content
 	+ lib
@@ -117,7 +117,7 @@ namespace: tutorials.hiring
 imports:
   base: tutorials.base
   hiring: tutorials.hiring
-  mail: io.cloudslang.cloudslang.base.mail
+  mail: io.cloudslang.base.mail
 
 flow:
   name: new_hire
