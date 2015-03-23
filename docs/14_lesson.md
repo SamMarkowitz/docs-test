@@ -9,7 +9,7 @@ We'll be installing our 3<sup>rd</sup> party Python package in this lesson using
 
 The folder structure where the CLI executable is should look something like this:
 
-+ cloudslang
++ cslang
     + bin
 	    + cslang
 	    + cslang.bat
