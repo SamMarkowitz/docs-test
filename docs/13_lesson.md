@@ -99,7 +99,7 @@ namespace: tutorials.hiring
 imports:
   base: tutorials.base
   hiring: tutorials.hiring
-  mail: io.cloudslang.cloudslang.base.mail
+  mail: io.cloudslang.base.mail
 
 flow:
   name: new_hire
