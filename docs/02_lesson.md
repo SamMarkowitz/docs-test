@@ -44,7 +44,7 @@ Finally, we've reached the core of the operation, the action. There are two type
 ##Run It
 That's it. Our operation is all ready. Our next step will be to create a flow that uses the operation we just wrote, but we can actually just run the operation as is.
 
-To do so, save the operation file, fire up the SLANG CLI and enter the following at the prompt to run your operation:
+To do so, save the operation file, fire up the CloundSlang CLI and enter the following at the prompt to run your operation:
 
 ```bash
 run --f <folder path>/tutorials/base/print.sl --i text=Hi
