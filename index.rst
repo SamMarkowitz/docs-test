@@ -11,6 +11,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   cloudslang_cli
+   cloudslang_dsl_reference
 
 
 Indices and tables
