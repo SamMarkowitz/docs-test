@@ -1,3 +1,6 @@
+DSL Reference
++++++++++++++
+
 CloudSlang is a `YAML <http://www.yaml.org>`__ (version 1.2) based
 language for describing a workflow. Using CloudSlang you can easily
 define a workflow in a structured, easy-to-understand format that can be
@@ -100,6 +103,9 @@ and concepts are explained in detail below.
 -  `results <#results>`__
 
 --------------
+
+Keywords
+========
 
 action
 ------
@@ -560,7 +566,7 @@ own or it can be used by another flow in the `do <#do>`__ property of a
       inputs:
         - input1
         - input2
-      
+
       workflow:
         - divider:
             do:
@@ -578,10 +584,10 @@ own or it can be used by another flow in the `do <#do>`__ property of a
                 - text: input1 + "/" + input2 + " = " + answer
             navigate:
               SUCCESS: SUCCESS
-      
+
       outputs:
         - quotient: answer
-      
+
       results:
         - ILLEGAL
         - SUCCESS

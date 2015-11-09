@@ -1,1545 +1,279 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>CloudSlang Files &mdash; Test_RST 0.8 documentation</title>
-    
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '0.8',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Test_RST 0.8 documentation" href="#" />
-   
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to Test’s documentation! &mdash; Test 8 documentation</title>
+  
 
-  </head>
-  <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="#">Test_RST 0.8 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+  
+  
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Test 8 documentation" href="#"/>
+        <link rel="next" title="DSL Reference" href="cloudslang_dsl_reference.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="#" class="icon icon-home"> Test
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="cloudslang_dsl_reference.html">DSL Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_dsl_reference.html#cloudslang-files">CloudSlang Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_dsl_reference.html#keywords">Keywords</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#action">action</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#java-action">java_action</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#python-script">python_script</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#importing-python-scripts">Importing Python Scripts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#aggregate">aggregate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#async-loop">async_loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#branches-context">branches_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#break">break</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#default">default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#do">do</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#flow">flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#for">for</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#loop-for">loop: for</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#async-loop-for">async_loop: for</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#get">get</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#imports">imports</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#inputs">inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#loop">loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#name">name</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#namespace">namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#navigate">navigate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#on-failure">on_failure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#operation">operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#outputs">outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#overridable">overridable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#publish">publish</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#standard-publish">Standard publish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#iterative-publish">Iterative publish</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#asynchronous-publish">Asynchronous publish</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#results">results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#flow-results">Flow results</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#operation-results">Operation results</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#required">required</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#self">self</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#system-property">system_property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#task">task</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#standard-task">Standard Task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#iterative-task">Iterative Task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cloudslang_dsl_reference.html#asynchronous-task">Asynchronous Task</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_dsl_reference.html#workflow">workflow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cloudslang_cli.html">CLI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_cli.html#download-and-run-pre-built-cli">Download and Run Pre-built CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_cli.html#download-build-and-run-cli">Download, Build and Run CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_cli.html#download-and-install-npm-package">Download and Install npm Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_cli.html#use-the-cli">Use the CLI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_cli.html#run-a-flow-or-operation">Run a Flow or Operation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_cli.html#run-with-inputs">Run with Inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_cli.html#run-with-dependencies">Run with Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_cli.html#run-with-system-properties">Run with System Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_cli.html#run-in-quiet-mode">Run in Quiet Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_cli.html#run-in-non-interactive-mode">Run in Non-Interactive Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_cli.html#other-commands">Other Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_cli.html#execution-log">Execution Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cloudslang_cli.html#help">Help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Test</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+      
+    <li>Welcome to Test&#8217;s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
             
-  <p>CloudSlang is a <a class="reference external" href="http://www.yaml.org">YAML</a> (version 1.2) based
-language for describing a workflow. Using CloudSlang you can easily
-define a workflow in a structured, easy-to-understand format that can be
-run by the CloudSlang Orchestration Engine (Score). CloudSlang files can
-be run by the <a class="reference external" href="cloudslang_cli.md">CloudSlang CLI</a> or by an embedded
-instance of Score using the <a class="reference external" href="developer_cloudslang.md#slang-api">Slang
-API</a>.</p>
-<p>This reference begins with a brief introduction to CloudSlang files and
-their structure, an alphabetical listing of CloudSlang keywords and
-concepts, and several examples, including one from which many of the
-code snippets below are taken.</p>
-<div class="section" id="cloudslang-files">
-<h1>CloudSlang Files<a class="headerlink" href="#cloudslang-files" title="Permalink to this headline">¶</a></h1>
-<p>CloudSlang files are written using <a class="reference external" href="http://www.yaml.org">YAML</a>. The
-recommended extension for CloudSlang files is <strong>.sl</strong>, but <strong>.sl.yaml</strong>
-and <strong>.sl.yml</strong> will work as well.</p>
-<p>There are two types of CloudSlang files:</p>
+  <div class="section" id="welcome-to-test-s-documentation">
+<h1>Welcome to Test&#8217;s documentation!<a class="headerlink" href="#welcome-to-test-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cloudslang_dsl_reference.html">DSL Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_dsl_reference.html#cloudslang-files">CloudSlang Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_dsl_reference.html#keywords">Keywords</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cloudslang_cli.html">CLI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_cli.html#download-and-run-pre-built-cli">Download and Run Pre-built CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_cli.html#download-build-and-run-cli">Download, Build and Run CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_cli.html#download-and-install-npm-package">Download and Install npm Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudslang_cli.html#use-the-cli">Use the CLI</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li>flow - contains a list of tasks and navigation logic that calls
-operations or subflows</li>
-<li>operation - contains an action that runs a script or method</li>
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
 </ul>
-<p>The following properties are for all types of CloudSlang files. For
-properties specific to <a class="reference external" href="#flow">flows</a> or <a class="reference external" href="#operation">operations</a>,
-see their respective sections below.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="14%" />
-<col width="10%" />
-<col width="9%" />
-<col width="22%" />
-<col width="20%" />
-<col width="25%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Required</th>
-<th class="head">Default</th>
-<th class="head">Value Type</th>
-<th class="head">Description</th>
-<th class="head">More Info</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">namespace</span></code></td>
-<td>no</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>string</td>
-<td>namespace of the flow</td>
-<td><a class="reference external" href="#namespace">namespace</a></td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">imports</span></code></td>
-<td>no</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>list of key:value pairs</td>
-<td>files to import</td>
-<td><a class="reference external" href="#imports">imports</a></td>
-</tr>
-</tbody>
-</table>
-<p>The general structure of CloudSlang files is outlined here. Some of the
-properties that appear are optional. All CloudSlang keywords, properties
-and concepts are explained in detail below.</p>
-<p><strong>Flow file</strong></p>
-<ul class="simple">
-<li><a class="reference external" href="#namespace">namespace</a></li>
-<li><a class="reference external" href="#imports">imports</a></li>
-<li><a class="reference external" href="#flow">flow</a></li>
-<li><a class="reference external" href="#name">name</a></li>
-<li><a class="reference external" href="#inputs">inputs</a><ul>
-<li><a class="reference external" href="#required">required</a></li>
-<li><a class="reference external" href="#default">default</a></li>
-<li><a class="reference external" href="#overridable">overridable</a></li>
-<li><a class="reference external" href="#system_property">system_property</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="#workflow">workflow</a><ul>
-<li><a class="reference external" href="#task">task(s)</a></li>
-<li><a class="reference external" href="#do">do</a></li>
-<li><a class="reference external" href="#publish">publish</a></li>
-<li><a class="reference external" href="#navigate">navigate</a></li>
-<li><a class="reference external" href="#iterative-task">iterative task</a></li>
-<li><a class="reference external" href="#loop">loop</a><ul>
-<li><a class="reference external" href="#for">for</a></li>
-<li><a class="reference external" href="#do">do</a></li>
-<li><a class="reference external" href="#publish">publish</a></li>
-<li><a class="reference external" href="#break">break</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="#navigate">navigate</a></li>
-<li><a class="reference external" href="#asynchronous-task">asynchronous task</a></li>
-<li><a class="reference external" href="#async_loop">async_loop</a><ul>
-<li><a class="reference external" href="#for">for</a></li>
-<li><a class="reference external" href="#do">do</a></li>
-<li><a class="reference external" href="#publish">publish</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="#aggregate">aggregate</a></li>
-<li><a class="reference external" href="#navigate">navigate</a></li>
-<li><a class="reference external" href="#on_failure">on_failure</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="#outputs">outputs</a></li>
-<li><a class="reference external" href="#results">results</a></li>
-</ul>
-<p><strong>Operations file</strong></p>
-<ul class="simple">
-<li><a class="reference external" href="#namespace">namespace</a></li>
-<li><a class="reference external" href="#imports">imports</a></li>
-<li><a class="reference external" href="#operation">operation</a></li>
-<li><a class="reference external" href="#name">name</a></li>
-<li><a class="reference external" href="#inputs">inputs</a><ul>
-<li><a class="reference external" href="#required">required</a></li>
-<li><a class="reference external" href="#default">default</a></li>
-<li><a class="reference external" href="#overridable">overridable</a></li>
-<li><a class="reference external" href="#system_property">system_property</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="#action">action</a></li>
-<li><a class="reference external" href="#outputs">outputs</a></li>
-<li><a class="reference external" href="#results">results</a></li>
-</ul>
-<hr class="docutils" />
-<div class="section" id="action">
-<h2>action<a class="headerlink" href="#action" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">action</span></code> is a property of an <a class="reference external" href="#operation">operation</a>. It is
-mapped to a property that defines the type of action, which can be a
-<a class="reference external" href="#java_action">java_action</a> or <a class="reference external" href="#python_script">python_script</a>.</p>
-<div class="section" id="java-action">
-<h3>java_action<a class="headerlink" href="#java-action" title="Permalink to this headline">¶</a></h3>
-<div class="line-block">
-<div class="line">The key <code class="docutils literal"><span class="pre">java_action</span></code> is a property of <a class="reference external" href="#action">action</a>.</div>
-<div class="line">It is mapped to the properties that define the class and method where
-the &#64;Action resides.</div>
-</div>
-<p>A <code class="docutils literal"><span class="pre">java_action</span></code> is a valid &#64;Action that conforms to the method
-signature: <code class="docutils literal"><span class="pre">public</span> <span class="pre">Map&lt;String,</span> <span class="pre">String&gt;</span> <span class="pre">doSomething(paramaters)</span></code> and
-uses the following annotations from
-<code class="docutils literal"><span class="pre">com.hp.oo.sdk.content.annotations</span></code>:</p>
-<ul class="simple">
-<li>required annotations:<ul>
-<li>&#64;Param: action parameter</li>
-</ul>
-</li>
-<li>optional annotations:<ul>
-<li>&#64;Action: specify action information</li>
-<li>&#64;Output: action output</li>
-<li>&#64;Response: action response</li>
-</ul>
-</li>
-</ul>
-<p><strong>Example - CloudSlang call to a Java &#64;Action</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>name: pull_image
-inputs:
-  - input1
-  - input2
-action:
-  java_action:
-    className: org.mypackage.MyClass
-    methodName: doMyAction
-outputs:
-  - returnResult
-results:
-  - SUCCESS : someActionOutput == &#39;0&#39;
-  - FAILURE
-</pre></div>
-</div>
-<div class="code java highlight-python"><div class="highlight"><pre>public Map&lt;String, String&gt; doMyAction(
-        @Param(&quot;input1&quot;) String input1,
-        @Param(&quot;input2&quot;) String input2) {
-    //logic here
-    Map&lt;String, String&gt; returnValues = new HashMap&lt;&gt;();
-    //prepare return values map
-    return returnValues;
-}
-</pre></div>
-</div>
-</div>
-<div class="section" id="python-script">
-<h3>python_script<a class="headerlink" href="#python-script" title="Permalink to this headline">¶</a></h3>
-<div class="line-block">
-<div class="line">The key <code class="docutils literal"><span class="pre">python_script</span></code> is a property of <a class="reference external" href="#action">action</a>.</div>
-<div class="line">It is mapped to a value containing a Python script.</div>
-</div>
-<p>All variables in scope at the conclusion of the Python script must be
-serializable. If non-serializable variables are used, remove them from
-scope by using the <code class="docutils literal"><span class="pre">del</span></code> keyword before the script exits.</p>
-<p><strong>Note:</strong> CloudSlang uses the <a class="reference external" href="http://www.jython.org/">Jython</a>
-implementation of Python 2.7. For information on Jython&#8217;s limitations,
-see the <a class="reference external" href="https://wiki.python.org/jython/JythonFaq">Jython FAQ</a>.</p>
-<p><strong>Example - action with Python script that divides two numbers</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>name: divide
-inputs:
-  - dividend
-  - divisor
-action:
-  python_script: |
-    if divisor == &#39;0&#39;:
-      quotient = &#39;division by zero error&#39;
-    else:
-      quotient = float(dividend) / float(divisor)
-outputs:
-  - quotient
-results:
-  - ILLEGAL: quotient == &#39;division by zero error&#39;
-  - SUCCESS
-</pre></div>
-</div>
-<p><strong>Note:</strong> Single-line Python scripts can be written inline with the
-<code class="docutils literal"><span class="pre">python_script</span></code> key. Multi-line Python scripts can use the YAML pipe
-(<code class="docutils literal"><span class="pre">|</span></code>) indicator as in the example above.</p>
-<div class="section" id="importing-external-python-packages">
-<h4>Importing External Python Packages<a class="headerlink" href="#importing-external-python-packages" title="Permalink to this headline">¶</a></h4>
-<p>There are three approaches to importing and using external Python
-modules:</p>
-<ul class="simple">
-<li>Installing packages into the <strong>python-lib</strong> folder</li>
-<li>Editing the executable file</li>
-<li>Adding the package location to <code class="docutils literal"><span class="pre">sys.path</span></code></li>
-</ul>
-<p><strong>Installing packages into the python-lib folder:</strong></p>
-<p>Prerequisite: <strong>pip</strong> - see <strong>pip</strong>&#8216;s
-<a class="reference external" href="https://pip.pypa.io/en/latest/installing.html">documentation</a> for
-how to install.</p>
-<ol class="arabic">
-<li><p class="first">Edit the <strong>requirements.txt</strong> file in the <strong>python-lib</strong> folder,
-which is found at the same level as the <strong>bin</strong> folder that contains
-the CLI executable.</p>
-<ul class="simple">
-<li>If not using a pre-built CLI, you may have to create the
-<strong>python-lib</strong> folder and <strong>requirements.txt</strong> file.</li>
-</ul>
-</li>
-<li><p class="first">Enter the Python package and all its dependencies in the requirements
-file.</p>
-<ul class="simple">
-<li>See the <strong>pip</strong>
-<a class="reference external" href="https://pip.pypa.io/en/latest/user_guide.html#requirements-files">documentation</a>
-for information on how to format the requirements file (see
-example below).</li>
-</ul>
-</li>
-<li><p class="first">Run the following command from inside the <strong>python-lib</strong> folder:
-<code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span> <span class="pre">-t</span></code>.</p>
-<p><strong>Note:</strong> If your machine is behind a proxy you will need to specify
-the proxy using pip&#8217;s <code class="docutils literal"><span class="pre">--proxy</span></code> flag.</p>
-</li>
-<li><p class="first">Import the package as you normally would in Python from within the
-action&#8217;s <code class="docutils literal"><span class="pre">python_script</span></code>:</p>
-</li>
-</ol>
-<div class="code yaml highlight-python"><div class="highlight"><pre>action:
-  python_script: |
-    from pyfiglet import Figlet
-    f = Figlet(font=&#39;slant&#39;)
-    print f.renderText(text)
-</pre></div>
-</div>
-<p><strong>Example - requirements file</strong></p>
-<div class="highlight-python"><div class="highlight"><pre>pyfiglet == 0.7.2
-setuptools
-</pre></div>
-</div>
-<p><strong>Note:</strong> If you have defined a <code class="docutils literal"><span class="pre">JYTHONPATH</span></code> environment variable, you
-will need to add the <strong>python-lib</strong> folder&#8217;s path to its value.</p>
-<p><strong>Editing the executable file</strong></p>
-<ol class="arabic simple">
-<li>Open the executable found in the <strong>bin</strong> folder for editing.</li>
-<li>Change the <code class="docutils literal"><span class="pre">Dpython.path</span></code> key&#8217;s value to the desired path.</li>
-<li>Import the package as you normally would in Python from within the
-action&#8217;s <code class="docutils literal"><span class="pre">python_script</span></code>.</li>
-</ol>
-<p><strong>Adding the package location to ``sys.path``:</strong></p>
-<ol class="arabic simple">
-<li>In the action&#8217;s Pyton script, import the <code class="docutils literal"><span class="pre">sys</span></code> module.</li>
-<li>Use <code class="docutils literal"><span class="pre">sys.path.append()</span></code> to add the path to the desired module.</li>
-<li>Import the module and use it.</li>
-</ol>
-<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Example - takes path as input parameter, adds it to sys.path and
-imports desired module **</p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>inputs:
-  - path
-action:
-  python_script: |
-    import sys
-    sys.path.append(path)
-    import module_to_import
-    print module_to_import.something()
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="importing-python-scripts">
-<h3>Importing Python Scripts<a class="headerlink" href="#importing-python-scripts" title="Permalink to this headline">¶</a></h3>
-<p>To import a Python script in a <code class="docutils literal"><span class="pre">python_script</span></code> action:</p>
-<ol class="arabic simple">
-<li>Add the Python script to the <strong>python-lib</strong> folder, which is found at
-the same level as the <strong>bin</strong> folder that contains the CLI
-executable.</li>
-<li>Import the script as you normally would in Python from within the
-action&#8217;s <code class="docutils literal"><span class="pre">python_script</span></code>.</li>
-</ol>
-<p><strong>Note:</strong> If you have defined a <code class="docutils literal"><span class="pre">JYTHONPATH</span></code> environment variable, you
-will need to add the <strong>python-lib</strong> folder&#8217;s path to its value.</p>
-</div>
-</div>
-<div class="section" id="aggregate">
-<h2>aggregate<a class="headerlink" href="#aggregate" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">aggregate</span></code> is a property of an <a class="reference external" href="#asynchronous-task">asynchronous
-task</a> name. It is mapped to key:value pairs where
-the key is the variable name to publish to the <a class="reference external" href="#flow">flow&#8217;s</a> scope
-and the value is the aggregation expression.</p>
-<p>Defines the aggregation logic for an <a class="reference external" href="#asynchronous-task">asynchronous
-task</a>, often making us of the
-<a class="reference external" href="#branches_context">branches_context</a> construct.</p>
-<p>Aggregation is performed after all branches of an <a class="reference external" href="#asynchronous-task">asynchronous
-task</a> have completed.</p>
-<p><strong>Example - aggregates all of the published names into name_list</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>aggregate:
-  - name_list: map(lambda x:str(x[&#39;name&#39;]), branches_context)
-</pre></div>
-</div>
-</div>
-<div class="section" id="async-loop">
-<h2>async_loop<a class="headerlink" href="#async-loop" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">asyc_loop</span></code> is a property of an <a class="reference external" href="#asynchronous-task">asynchronous
-task&#8217;s</a> name. It is mapped to the <a class="reference external" href="#asynchronous-task">asynchronous
-task&#8217;s</a> properties.</p>
-<p>For each value in the loop&#8217;s list a branch is created and the <code class="docutils literal"><span class="pre">do</span></code>
-will run an <a class="reference external" href="#operation">operation</a> or <a class="reference external" href="#flow">subflow</a>. When all
-the branches have finished, the <a class="reference external" href="#asynchronous-task">asynchronous
-task&#8217;s</a> <a class="reference external" href="#aggregate">aggregation</a> and
-<a class="reference external" href="#navigate">navigation</a> will run.</p>
-<p>Property|Required|Default|Value Type|Description|More Info &#8212;|
-<code class="docutils literal"><span class="pre">for</span></code>|yes|-|variable <code class="docutils literal"><span class="pre">in</span></code> list|loop values|<a class="reference external" href="#for">for</a>
-<code class="docutils literal"><span class="pre">do</span></code>|yes|-|operation or subflow call|the operation or subflow
-this task will run in parallel|<a class="reference external" href="#do">do</a>
-<a class="reference external" href="#operation">operation</a> <a class="reference external" href="#flow">flow</a> <code class="docutils literal"><span class="pre">publish</span></code>|no|-|list
-of key:value pairs|operation or subflow outputs to aggregate and
-publish to the flow level|<a class="reference external" href="#publish">publish</a>
-<a class="reference external" href="#aggregate">aggregate</a> <a class="reference external" href="#outputs">outputs</a></p>
-<p><strong>Example: loop that breaks on a result of custom</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- print_values:
-    async_loop:
-      for: value in values
-      do:
-        print_branch:
-          - ID: value
-      publish:
-        - name
-    aggregate:
-        - name_list: map(lambda x:str(x[&#39;name&#39;]), branches_context)
-    navigate:
-        SUCCESS: print_list
-        FAILURE: FAILURE
-</pre></div>
-</div>
-</div>
-<div class="section" id="branches-context">
-<h2>branches_context<a class="headerlink" href="#branches-context" title="Permalink to this headline">¶</a></h2>
-<p>May appear in the <a class="reference external" href="#aggregate">aggregate</a> section of an <a class="reference external" href="#asynchronous-task">asynchronous
-task</a>.</p>
-<p>As branches of an <a class="reference external" href="#async_loop">async_loop</a> complete, their
-published values get placed as a dictionary into the
-<code class="docutils literal"><span class="pre">branches_context</span></code> list. The list is therefore in the order the
-branches have completed.</p>
-<p>A specific value can be accessed using the index representing its
-branch&#8217;s place in the finishing order and the name of the variable.</p>
-<p><strong>Example - retrieves the published name variable from the first branch
-to finish</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>aggregate:
-  - first_name: branches_context[0][&#39;name&#39;]
-</pre></div>
-</div>
-<p>More commonly, the <code class="docutils literal"><span class="pre">branches_context</span></code> is used to aggregate the values
-that have been published by all of the branches.</p>
-<p><strong>Example - aggregates all of the published name values into a list</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>aggregate:
-  - name_list: map(lambda x:str(x[&#39;name&#39;]), branches_context)
-</pre></div>
-</div>
-</div>
-<div class="section" id="break">
-<h2>break<a class="headerlink" href="#break" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">break</span></code> is a property of a <a class="reference external" href="#loop">loop</a>. It is mapped to a
-list of results on which to break out of the loop or an empty list
-(<code class="docutils literal"><span class="pre">[]</span></code>) to override the default breaking behavior for a list. When the
-<a class="reference external" href="#operation">operation</a> or <a class="reference external" href="#flow">subflow</a> of the <a class="reference external" href="#iterative-task">iterative
-task</a> returns a result in the break&#8217;s list, the
-iteration halts and the <a class="reference external" href="#iterative-task">interative task&#8217;s</a>
-<a class="reference external" href="#navigate">navigation</a> logic is run.</p>
-<p>If the <code class="docutils literal"><span class="pre">break</span></code> property is not defined, the loop will break on results
-of <code class="docutils literal"><span class="pre">FAILURE</span></code> by default. This behavior may be overriden so that
-iteration will continue even when a result of <code class="docutils literal"><span class="pre">FAILURE</span></code> is returned by
-defining alternate break behavior or mapping the <code class="docutils literal"><span class="pre">break</span></code> key to an
-empty list (<code class="docutils literal"><span class="pre">[]</span></code>).</p>
-<p><a href="#id3"><span class="problematic" id="id4">**</span></a>Example - loop that breaks on result of CUSTOM **</p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>loop:
-  for: value in range(1,7)
-  do:
-    custom_op:
-      - text: value
-  break:
-    - CUSTOM
-navigate:
-  CUSTOM: print_end
-</pre></div>
-</div>
-<p><a href="#id5"><span class="problematic" id="id6">**</span></a>Example - loop that continues even on result of FAILURE **</p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>loop:
-  for: value in range(1,7)
-  do:
-    custom_op:
-      - text: value
-  break: []
-</pre></div>
-</div>
-</div>
-<div class="section" id="default">
-<h2>default<a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">default</span></code> is a property of an <a class="reference external" href="#inputs">input</a> name. It is
-mapped to an expression value.</p>
-<p>The expression&#8217;s value will be passed to the <a class="reference external" href="#flow">flow</a> or
-<a class="reference external" href="#operation">operation</a> if no other value for that
-<a class="reference external" href="#inputs">input</a> parameter is explicitly passed or if the input&#8217;s
-<a class="reference external" href="#overridable">overridable</a> parameter is set to <code class="docutils literal"><span class="pre">false</span></code> and there
-is no <a class="reference external" href="#system_property">system_property</a> parameter defined.</p>
-<p><a href="#id7"><span class="problematic" id="id8">**</span></a>Example - default values **</p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>inputs:
-  - str_literal:
-      default: &quot;&#39;default value&#39;&quot;
-  - int_exp:
-      default: &#39;5 + 6&#39;
-  - from_variable:
-      default: variable_name
-</pre></div>
-</div>
-<p>A default value can also be defined inline by entering it as the value
-to the <a class="reference external" href="#inputs">input</a> parameter&#8217;s key.</p>
-<p><strong>Example - inline default values</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>inputs:
-  - str_literal: &quot;&#39;default value&#39;&quot;
-  - int_exp: &#39;5 + 6&#39;
-  - from_variable: variable_name
-</pre></div>
-</div>
-</div>
-<div class="section" id="do">
-<h2>do<a class="headerlink" href="#do" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">do</span></code> is a property of a <a class="reference external" href="#task">task</a> name, a
-<a class="reference external" href="#loop">loop</a>, or an <a class="reference external" href="#async_loop">async_loop</a>. It is mapped to a
-property that references an <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">flow</a>.</p>
-<p>Calls an <a class="reference external" href="#operation">operation</a> or <a class="reference external" href="#flow">flow</a> and passes in
-relevant <a class="reference external" href="#inputs">input</a>.</p>
-<p>The <a class="reference external" href="#operation">operation</a> or <a class="reference external" href="#flow">flow</a> may be called in
-several ways:</p>
-<ul class="simple">
-<li>by referencing the <a class="reference external" href="#operation">operation</a> or <a class="reference external" href="#flow">flow</a> by
-name when it is in the default namespace (the same namespace as the
-calling <a class="reference external" href="#flow">flow</a>)</li>
-<li>by using a fully qualified name (e.g. <code class="docutils literal"><span class="pre">path.to.operation.op_name</span></code>)<ul>
-<li>a path is recognized as a fully qualified name if the prefix
-(before the first <code class="docutils literal"><span class="pre">.</span></code>) is not a defined alias</li>
-</ul>
-</li>
-<li>by using an alias defined in the flow&#8217;s <a class="reference external" href="#imports">imports</a>
-section followed by the <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">flow</a> name (e.g <code class="docutils literal"><span class="pre">alias_name.op_name</span></code>)</li>
-<li>by using an alias defined in the flow&#8217;s <a class="reference external" href="#imports">imports</a>
-section followed by a continuation of the path to the
-<a class="reference external" href="#operation">operation</a> or <a class="reference external" href="#flow">flow</a> and its name (e.g
-<code class="docutils literal"><span class="pre">alias_name.path.cont.op_name</span></code>)</li>
-</ul>
-<p>For more information, see the <a class="reference external" href="cloudslang_examples.md#example-6-operation-paths">Operation
-Paths</a> example.</p>
-<p>Arguments may be passed to a <a class="reference external" href="#task">task</a> in one of two ways:</p>
-<ul class="simple">
-<li>list of argument names and optional mapped expressions</li>
-<li>comma-separated <code class="docutils literal"><span class="pre">argument_name</span> <span class="pre">=</span> <span class="pre">optional_expression</span></code> pairs</li>
-</ul>
-<p>Expression values will supersede values bound to flow
-<a class="reference external" href="#inputs">inputs</a> with the same name.</p>
-<p><strong>Example - call to a divide operation with list of mapped task
-arguments</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>do:
-  divide:
-    - dividend: input1
-    - divisor: input2
-</pre></div>
-</div>
-<p><strong>Example - call to a divide operation with comma-separated pairs</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>do:
-  divide: dividend = input1, divisor = input2
-</pre></div>
-</div>
-</div>
-<div class="section" id="flow">
-<h2>flow<a class="headerlink" href="#flow" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">flow</span></code> is mapped to the properties which make up the flow
-contents.</p>
-<p>A flow is the basic executable unit of CloudSlang. A flow can run on its
-own or it can be used by another flow in the <a class="reference external" href="#do">do</a> property of a
-<a class="reference external" href="#task">task</a>.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="12%" />
-<col width="9%" />
-<col width="22%" />
-<col width="12%" />
-<col width="24%" />
-<col width="21%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Required</th>
-<th class="head">Default</th>
-<th class="head">Value Type</th>
-<th class="head">Description</th>
-<th class="head">More Info</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">name</span></code></td>
-<td>yes</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>string</td>
-<td>name of the flow</td>
-<td><a class="reference external" href="#name">name</a></td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">inputs</span></code></td>
-<td>no</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>list</td>
-<td>inputs for the flow</td>
-<td><a class="reference external" href="#inputs">inputs</a></td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">workflow</span></code></td>
-<td>yes</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>map of tasks</td>
-<td>container for set of tasks</td>
-<td><a class="reference external" href="#workflow">workflow</a></td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">outputs</span></code></td>
-<td>no</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>list</td>
-<td>list of outputs</td>
-<td><a class="reference external" href="#outputs">outputs</a></td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">results</span></code></td>
-<td>no</td>
-<td>(<code class="docutils literal"><span class="pre">SUCCESS</span></code>/<code class="docutils literal"><span class="pre">FAILURE</span></code>)</td>
-<td>list</td>
-<td>possible results of the flow</td>
-<td><a class="reference external" href="#results">results</a></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example - a flow that performs a division of two numbers</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>flow:
-  name: division_flow
-
-  inputs:
-    - input1
-    - input2
-
-  workflow:
-    - divider:
-        do:
-          divide:
-            - dividend: input1
-            - divisor: input2
-        publish:
-          - answer: quotient
-        navigate:
-          ILLEGAL: ILLEGAL
-          SUCCESS: printer
-    - printer:
-        do:
-          print:
-            - text: input1 + &quot;/&quot; + input2 + &quot; = &quot; + answer
-        navigate:
-          SUCCESS: SUCCESS
-
-  outputs:
-    - quotient: answer
-
-  results:
-    - ILLEGAL
-    - SUCCESS
-</pre></div>
-</div>
-</div>
-<div class="section" id="for">
-<h2>for<a class="headerlink" href="#for" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">for</span></code> is a property of a <a class="reference external" href="#loop">loop</a> or an
-<a class="reference external" href="#async_loop">async_loop</a>.</p>
-<div class="section" id="loop-for">
-<h3>loop: for<a class="headerlink" href="#loop-for" title="Permalink to this headline">¶</a></h3>
-<p>A for loop iterates through a <a class="reference external" href="#iterating-through-a-list">list</a> or a
-<a class="reference external" href="#iterating-through-a-map">map</a>.</p>
-<p>The <a class="reference external" href="#iterative-task">iterative task</a> will run once for each element
-in the list or key in the map.</p>
-<div class="section" id="iterating-through-a-list">
-<h4>Iterating through a list<a class="headerlink" href="#iterating-through-a-list" title="Permalink to this headline">¶</a></h4>
-<p>When iterating through a list, the <code class="docutils literal"><span class="pre">for</span></code> key is mapped to an iteration
-variable followed by <code class="docutils literal"><span class="pre">in</span></code> followed by a list, an expression that
-evaluates to a list, or a comma delimited string.</p>
-<p><strong>Example - loop that iterates through the values in a list</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- print_values:
-    loop:
-      for: value in [1,2,3]
-      do:
-        print:
-          - text: value
-</pre></div>
-</div>
-<p><strong>Example - loop that iterates through the values in a comma delimited
-string</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- print_values:
-    loop:
-      for: value in &quot;1,2,3&quot;
-      do:
-        print:
-          - text: value
-</pre></div>
-</div>
-<p><strong>Example - loop that iterates through the values returned from an
-expression</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- print_values:
-    loop:
-      for: value in range(1,4)
-      do:
-        print:
-          - text: value
-</pre></div>
-</div>
-</div>
-<div class="section" id="iterating-through-a-map">
-<h4>Iterating through a map<a class="headerlink" href="#iterating-through-a-map" title="Permalink to this headline">¶</a></h4>
-<p>When iterating through a map, the <code class="docutils literal"><span class="pre">for</span></code> key is mapped to iteration
-variables for the key and value followed by <code class="docutils literal"><span class="pre">in</span></code> followed by a map or
-an expression that evaluates to a map.</p>
-<p><strong>Example - task that iterates through the values returned from an
-expression</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- print_values:
-    loop:
-      for: k, v in map
-      do:
-        print2:
-          - text1: k
-          - text2: v
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="async-loop-for">
-<h3>async_loop: for<a class="headerlink" href="#async-loop-for" title="Permalink to this headline">¶</a></h3>
-<p>An asynchronous for loops in parallel branches over the items in a list.</p>
-<p>The <a class="reference external" href="#asynchronous-task">asynchronous task</a> will run one branch for
-each element in the list.</p>
-<p>The <code class="docutils literal"><span class="pre">for</span></code> key is mapped to an iteration variable followed by <code class="docutils literal"><span class="pre">in</span></code>
-followed by a list or an expression that evaluates to a list.</p>
-<p><strong>Example - task that asynchronously loops through the values in a
-list</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- print_values:
-    async_loop:
-      for: value in values_list
-      do:
-        print_branch:
-          - ID: value
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="get">
-<h2>get<a class="headerlink" href="#get" title="Permalink to this headline">¶</a></h2>
-<p>May appear in the value of an <a class="reference external" href="#inputs">input</a>,
-<a class="reference external" href="#outputs">output</a>, <a class="reference external" href="#publish">publish</a>, <a class="reference external" href="#for">loop</a>
-expression or <a class="reference external" href="#results">result</a> expression.</p>
-<p>The function in the form of <code class="docutils literal"><span class="pre">get('key',</span> <span class="pre">'default_value')</span></code> returns the
-value associated with <code class="docutils literal"><span class="pre">key</span></code> if the key is defined and its value is not
-<code class="docutils literal"><span class="pre">None</span></code>. If the key is undefined or its value is <code class="docutils literal"><span class="pre">None</span></code> the function
-returns the <code class="docutils literal"><span class="pre">default_value</span></code>.</p>
-<p><strong>Example - usage of get function in inputs and outputs</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>inputs:
-  - input1:
-      required: false
-  - input1_safe:
-      default: get(&#39;input1&#39;, &#39;default_input&#39;)
-      overridable: false
-workflow:
-  - task1:
-      do:
-        print:
-          - text: input1_safe
-      publish:
-        - some_output: get(&#39;output1&#39;, &#39;default_output&#39;)
-outputs:
-  - some_output
-</pre></div>
-</div>
-</div>
-<div class="section" id="imports">
-<h2>imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">imports</span></code> is mapped to the files to import as follows:</p>
-<ul class="simple">
-<li>key - alias</li>
-<li>value - namespace of file to be imported</li>
-</ul>
-<p>Specifies the file&#8217;s dependencies and the aliases they will be
-referenced by in the file. Using an alias is one way to reference the
-<a class="reference external" href="#operation">operations</a> and <a class="reference external" href="#flow">subflows</a> used in a
-<a class="reference external" href="#flow">flow&#8217;s</a> <a class="reference external" href="#task">tasks</a>. For all the ways to reference
-<a class="reference external" href="#operation">operations</a> and <a class="reference external" href="#flow">subflows</a> used in a
-<a class="reference external" href="#flow">flow&#8217;s</a> <a class="reference external" href="#task">tasks</a>, see the <a class="reference external" href="#do">do</a> keyword.</p>
-<p><strong>Example - import operations and sublflow into flow</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>imports:
-  ops: examples.utils
-  sub_flows: examples.subflows
-
-flow:
-  name: hello_flow
-
-  workflow:
-    - print_hi:
-        do:
-          ops.print:
-            - text: &quot;&#39;Hi&#39;&quot;
-</pre></div>
-</div>
-</div>
-<div class="section" id="inputs">
-<h2>inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">inputs</span></code> is a property of a <a class="reference external" href="#flow">flow</a> or
-<a class="reference external" href="#operation">operation</a>. It is mapped to a list of input names. Each
-input name may in turn be mapped to its properties.</p>
-<p>Inputs are used to pass parameters to <a class="reference external" href="#flow">flows</a> or
-<a class="reference external" href="#operation">operations</a>.</p>
-<p>Input properties may also be used in the input list of a
-<a class="reference external" href="#task">task</a>.</p>
-<p>Property|Required|Default|Value Type|Description|More info &#8212;|
-<code class="docutils literal"><span class="pre">required</span></code>|no|true|boolean|is the input
-required|<a class="reference external" href="#required">required</a>
-<code class="docutils literal"><span class="pre">default</span></code>|no|-|expression|default value of the
-input|<a class="reference external" href="#default">default</a> <code class="docutils literal"><span class="pre">overridable</span></code>|no|true|boolean|if
-false, the default value always overrides values passed
-in|<a class="reference external" href="#overridable">overridable</a>
-<code class="docutils literal"><span class="pre">system_property</span></code>|no|-|string|the name of a system property
-variable|<a class="reference external" href="#system_property">system_property</a></p>
-<p><strong>Example - two inputs</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>inputs:
-  - input1:
-      default: &quot;&#39;default value&#39;&quot;
-      overridable: false
-  - input2
-</pre></div>
-</div>
-</div>
-<div class="section" id="loop">
-<h2>loop<a class="headerlink" href="#loop" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">loop</span></code> is a property of an <a class="reference external" href="#iterative-task">iterative
-task&#8217;s</a> name. It is mapped to the <a class="reference external" href="#iterative-task">iterative
-task&#8217;s</a> properties.</p>
-<p>For each value in the loop&#8217;s list the <code class="docutils literal"><span class="pre">do</span></code> will run an
-<a class="reference external" href="#operation">operation</a> or <a class="reference external" href="#flow">subflow</a>. If the returned
-result is in the <code class="docutils literal"><span class="pre">break</span></code> list, or if <code class="docutils literal"><span class="pre">break</span></code> does not appear and the
-returned result is <code class="docutils literal"><span class="pre">FAILURE</span></code>, or if the list has been exhausted, the
-task&#8217;s navigation will run.</p>
-<p>Property|Required|Default|Value Type|Description|More Info &#8212;|
-<code class="docutils literal"><span class="pre">for</span></code>|yes|-|variable <code class="docutils literal"><span class="pre">in</span></code> list or key, value <code class="docutils literal"><span class="pre">in</span></code>
-map|iteration logic|<a class="reference external" href="#for">for</a> <code class="docutils literal"><span class="pre">do</span></code>|yes|-|operation or
-subflow call|the operation or subflow this task will run
-iteratively|<a class="reference external" href="#do">do</a> <a class="reference external" href="#operation">operation</a> <a class="reference external" href="#flow">flow</a>
-<code class="docutils literal"><span class="pre">publish</span></code>|no|-|list of key:value pairs|operation or subflow
-outputs to aggregate and publish to the flow
-level|<a class="reference external" href="#publish">publish</a> <a class="reference external" href="#outputs">outputs</a>
-<code class="docutils literal"><span class="pre">break</span></code>|no|-|list of <a class="reference external" href="#result">results</a>|operation or
-subflow <a class="reference external" href="#result">results</a> on which to break out of the
-loop|<a class="reference external" href="#break">break</a></p>
-<p><strong>Example: loop that breaks on a result of custom</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- custom3:
-    loop:
-      for: value in &quot;1,2,3,4,5&quot;
-      do:
-        custom3:
-          - text: value
-      break:
-        - CUSTOM
-    navigate:
-      CUSTOM: aggregate
-      SUCCESS: skip_this
-</pre></div>
-</div>
-</div>
-<div class="section" id="name">
-<h2>name<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">name</span></code> is a property of <a class="reference external" href="#flow">flow</a> and
-<a class="reference external" href="#operation">operation</a>. It is mapped to a value that is used as the
-name of the <a class="reference external" href="#flow">flow</a> or <a class="reference external" href="#operation">operation</a>.</p>
-<p>The name of a <a class="reference external" href="#flow">flow</a> or <a class="reference external" href="#operation">operation</a> may be used
-when called from a <a class="reference external" href="#flow">flow</a>&#8216;s <a class="reference external" href="#task">task</a>.</p>
-<p><strong>Example - naming the flow *division_flow*</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>name: division_flow
-</pre></div>
-</div>
-</div>
-<div class="section" id="namespace">
-<h2>namespace<a class="headerlink" href="#namespace" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">namespace</span></code> is mapped to a string value that defines the
-file&#8217;s namespace.</p>
-<p>The namespace of a file may be used by a flow to <a class="reference external" href="#imports">import</a>
-dependencies.</p>
-<p><strong>Example - definition a namespace</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>namespace: examples.hello_world
-</pre></div>
-</div>
-<p><strong>Example - using a namespace in an imports definition</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>imports:
-  ops: examples.hello_world
-</pre></div>
-</div>
-<p><strong>Note:</strong> If the imported file resides in a folder that is different
-from the folder in which the importing file resides, the imported file&#8217;s
-directory must be added using the <code class="docutils literal"><span class="pre">--cp</span></code> flag when running from the
-CLI (see <a class="reference external" href="cloudslang_cli.md#run-with-dependencies">Run with
-Dependencies</a>).</p>
-</div>
-<div class="section" id="navigate">
-<h2>navigate<a class="headerlink" href="#navigate" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">navigate</span></code> is a property of a <a class="reference external" href="#task">task</a> name. It is
-mapped to key:value pairs where the key is the received
-<a class="reference external" href="#results">result</a> and the value is the target <a class="reference external" href="#task">task</a> or
-<a class="reference external" href="#flow">flow</a> <a class="reference external" href="#results">result</a>.</p>
-<p>Defines the navigation logic for a <a class="reference external" href="#standard-task">standard task</a>,
-an <a class="reference external" href="#iterative-task">iterative task</a> or an <a class="reference external" href="#asynchronous-task">asynchronous
-task</a>. The flow will continue with the
-<a class="reference external" href="#task">task</a> or <a class="reference external" href="#flow">flow</a> <a class="reference external" href="#results">result</a> whose value
-is mapped to the <a class="reference external" href="#results">result</a> returned by the called
-<a class="reference external" href="#operation">operation</a> or <a class="reference external" href="#flow">subflow</a>.</p>
-<p>The default navigation is <code class="docutils literal"><span class="pre">SUCCESS</span></code> except for the
-<a class="reference external" href="#on_failure">on_failure</a> <a class="reference external" href="#task">task</a> whose default navigation
-is <code class="docutils literal"><span class="pre">FAILURE</span></code>. All possible <a class="reference external" href="#results">results</a> returned by the
-called <a class="reference external" href="#operation">operation</a> or subflow must be handled.</p>
-<p>For a <a class="reference external" href="#standard-task">standard task</a> the navigation logic runs when
-the <a class="reference external" href="#task">task</a> is completed.</p>
-<p>For an <a class="reference external" href="#iterative-task">iterative task</a> the navigation logic runs
-when the last iteration of the <a class="reference external" href="#task">task</a> is completed or after
-exiting the iteration due to a <a class="reference external" href="#break">break</a>.</p>
-<p>For an <a class="reference external" href="#asynchronous-task">asynchronous task</a> the navigation logic
-runs after the last branch has completed. If any of the branches
-returned a <a class="reference external" href="#results">result</a> of <code class="docutils literal"><span class="pre">FAILURE</span></code>, the <a class="reference external" href="#flow">flow</a>
-will navigate to the <a class="reference external" href="#task">task</a> or <a class="reference external" href="#flow">flow</a>
-<a class="reference external" href="#results">result</a> mapped to <code class="docutils literal"><span class="pre">FAILURE</span></code>. Otherwise, the
-<a class="reference external" href="#flow">flow</a> will navigate to the <a class="reference external" href="#task">task</a> or
-<a class="reference external" href="#flow">flow</a> <a class="reference external" href="#results">result</a> mapped to <code class="docutils literal"><span class="pre">SUCCESS</span></code>. Note that
-the only <a class="reference external" href="#results">results</a> of an <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">subflow</a> called in an <a class="reference external" href="#async_loop">async_loop</a> that are
-evaluated are <code class="docutils literal"><span class="pre">SUCCESS</span></code> and <code class="docutils literal"><span class="pre">FAILURE</span></code>. Any other results will be
-evaluated as <code class="docutils literal"><span class="pre">SUCCESS</span></code>.</p>
-<p><strong>Example - ILLEGAL result will navigate to flow&#8217;s FAILURE result and
-SUCCESS result will navigate to task named *printer*</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>navigate:
-  ILLEGAL: FAILURE
-  SUCCESS: printer
-</pre></div>
-</div>
-</div>
-<div class="section" id="on-failure">
-<h2>on_failure<a class="headerlink" href="#on-failure" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">on_failure</span></code> is a property of a <a class="reference external" href="#workflow">workflow</a>. It
-is mapped to a <a class="reference external" href="#task">task</a>.</p>
-<p>Defines the <a class="reference external" href="#task">task</a>, which when using default
-<a class="reference external" href="#navigation">navigation</a>, is the target of a <code class="docutils literal"><span class="pre">FAILURE</span></code>
-<a class="reference external" href="#results">result</a> returned from an <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">flow</a>. The <code class="docutils literal"><span class="pre">on_failure</span></code> <a class="reference external" href="#task">task&#8217;s</a>
-<a class="reference external" href="#navigate">navigation</a> defaults to <code class="docutils literal"><span class="pre">FAILURE</span></code>.</p>
-<p><strong>Example - failure task which call a print operation to print an error
-message</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- on_failure:
-  - failure:
-      do:
-        print:
-          - text: error_msg
-</pre></div>
-</div>
-</div>
-<div class="section" id="operation">
-<h2>operation<a class="headerlink" href="#operation" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">operation</span></code> is mapped to the properties which make up the
-operation contents.</p>
-<p>Property|Required|Default|Value Type|Description|More Info &#8212;|
-inputs|no|-|list|operation inputs|<a class="reference external" href="#inputs">inputs</a>
-action|yes|-|<code class="docutils literal"><span class="pre">python_script</span></code> or <code class="docutils literal"><span class="pre">java_action</span></code>|operation
-logic|<a class="reference external" href="#action">action</a> outputs|no|-|list|operation
-outputs|<a class="reference external" href="#outputs">outputs</a>
-results|no|<code class="docutils literal"><span class="pre">SUCCESS</span></code>|list|possible operation
-results|<a class="reference external" href="#results">results</a></p>
-<p><strong>Example - operation that adds two inputs and outputs the answer</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>name: add
-inputs:
-  - left
-  - right
-action:
-  python_script: ans = left + right
-outputs:
-  - out: ans
-results:
-  - SUCCESS
-</pre></div>
-</div>
-</div>
-<div class="section" id="outputs">
-<h2>outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">outputs</span></code> is a property of a <a class="reference external" href="#flow">flow</a> or
-<a class="reference external" href="#operation">operation</a>. It is mapped to a list of output variable
-names which may also contain expression values. Output expressions must
-evaluate to strings.</p>
-<p>Defines the parameters a <a class="reference external" href="#flow">flow</a> or <a class="reference external" href="#operation">operation</a>
-exposes to possible <a class="reference external" href="#publish">publication</a> by a <a class="reference external" href="#task">task</a>.
-The calling <a class="reference external" href="#task">task</a> refers to an output by its name.</p>
-<p>See also <a class="reference external" href="#self">self</a>.</p>
-<p><strong>Example - various types of outputs</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>outputs:
-  - existing_variable
-  - output2: some_variable
-  - output3: 5 + 6
-  - output4: self[&#39;input1&#39;]
-</pre></div>
-</div>
-</div>
-<div class="section" id="overridable">
-<h2>overridable<a class="headerlink" href="#overridable" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">overridable</span></code> is a property of an <a class="reference external" href="#inputs">input</a> name. It
-is mapped to a boolean value.</p>
-<p>A value of <code class="docutils literal"><span class="pre">false</span></code> will ensure that the <a class="reference external" href="#inputs">input</a>
-parameter&#8217;s <a class="reference external" href="#default">default</a> value will not be overridden by
-values passed into the <a class="reference external" href="#flow">flow</a> or <a class="reference external" href="#operation">operation</a>.
-If <code class="docutils literal"><span class="pre">overridable</span></code> is not defined, values passed in will override the
-<a class="reference external" href="#default">default</a> value.</p>
-<p><strong>Example - default value of text input parameter will not be overridden
-by values passed in</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>inputs:
-  - text:
-      default: &quot;&#39;default text&#39;&quot;
-      overridable: false
-</pre></div>
-</div>
-</div>
-<div class="section" id="publish">
-<h2>publish<a class="headerlink" href="#publish" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">publish</span></code> is a property of a <a class="reference external" href="#task">task</a> name, a
-<a class="reference external" href="#loop">loop</a> or an <a class="reference external" href="#async_loop">async_loop</a>. It is mapped to a
-list of key:value pairs where the key is the published variable name and
-the value is the name of the <a class="reference external" href="#outputs">output</a> received from an
-<a class="reference external" href="#operation">operation</a> or <a class="reference external" href="#flow">flow</a>.</p>
-<div class="section" id="standard-publish">
-<h3>Standard publish<a class="headerlink" href="#standard-publish" title="Permalink to this headline">¶</a></h3>
-<p>In a <a class="reference external" href="#standard-task">standard task</a>, <code class="docutils literal"><span class="pre">publish</span></code> binds the
-<a class="reference external" href="#outputs">output</a> from an <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">flow</a> to a variable whose scope is the current
-<a class="reference external" href="#flow">flow</a> and can therefore be used by other <a class="reference external" href="#task">tasks</a> or
-as the <a class="reference external" href="#flow">flow&#8217;s</a> own <a class="reference external" href="#outputs">output</a>.</p>
-<p><strong>Example - publish the quotient output as ans</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- division1:
-    do:
-      division:
-        - input1: dividend1
-        - input2: divisor1
-    publish:
-      - ans: quotient
-</pre></div>
-</div>
-</div>
-<div class="section" id="iterative-publish">
-<h3>Iterative publish<a class="headerlink" href="#iterative-publish" title="Permalink to this headline">¶</a></h3>
-<p>In an <a class="reference external" href="#iterative-task">iterative task</a> the publish mechanism is run
-during each iteration after the <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">subflow</a> has completed, therefore allowing for aggregation.</p>
-<p><strong>Example - publishing in an iterative task to aggregate output</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- aggregate:
-    loop:
-      for: value in range(1,6)
-      do:
-        print:
-          - text: value
-      publish:
-        - sum: self[&#39;sum&#39;] + out
-</pre></div>
-</div>
-</div>
-<div class="section" id="asynchronous-publish">
-<h3>Asynchronous publish<a class="headerlink" href="#asynchronous-publish" title="Permalink to this headline">¶</a></h3>
-<p>In an <a class="reference external" href="#asynchronous-task">asynchronous task</a> the publish mechanism
-is run during each branch after the <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">subflow</a> has completed. Published variables and their values
-are added as a dictionary to the
-<a class="reference external" href="#branches_context">branches_context</a> list in the order they are
-received from finished branches, allowing for aggregation.</p>
-<p><strong>Example - publishing in an iterative task to aggregate output</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- print_values:
-    async_loop:
-      for: value in values_list
-      do:
-        print_branch:
-          - ID: value
-      publish:
-        - name
-    aggregate:
-        - name_list: map(lambda x:str(x[&#39;name&#39;]), branches_context)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="results">
-<h2>results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">results</span></code> is a property of a <a class="reference external" href="#flow">flow</a> or
-<a class="reference external" href="#operation">operation</a>.</p>
-<p>The results of a <a class="reference external" href="#flow">flow</a> or <a class="reference external" href="#operation">operation</a> can be
-used by the calling <a class="reference external" href="#task">task</a> for <a class="reference external" href="#navigate">navigation</a>
-purposes.</p>
-<p><strong>Note:</strong> the only results of an <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">subflow</a> called in an <a class="reference external" href="#async_loop">async_loop</a> that are
-evaluated are <code class="docutils literal"><span class="pre">SUCCESS</span></code> and <code class="docutils literal"><span class="pre">FAILURE</span></code>. Any other results will be
-evaluated as <code class="docutils literal"><span class="pre">SUCCESS</span></code>.</p>
-<div class="section" id="flow-results">
-<h3>Flow results<a class="headerlink" href="#flow-results" title="Permalink to this headline">¶</a></h3>
-<p>In a <a class="reference external" href="#flow">flow</a>, the key <code class="docutils literal"><span class="pre">results</span></code> is mapped to a list of result
-names.</p>
-<p>Defines the possible results of the <a class="reference external" href="#flow">flow</a>. By default a
-<a class="reference external" href="#flow">flow</a> has two results, <code class="docutils literal"><span class="pre">SUCCESS</span></code> and <code class="docutils literal"><span class="pre">FAILURE</span></code>. The
-defaults can be overridden with any number of user-defined results.</p>
-<p>When overriding, the defaults are lost and must be redefined if they are
-to be used.</p>
-<p>All result possibilities must be listed. When being used as a subflow
-all <a class="reference external" href="#flow">flow</a> results must be handled by the calling
-<a class="reference external" href="#task">task</a>.</p>
-<p><strong>Example - a user-defined result</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>results:
-  - SUCCESS
-  - ILLEGAL
-  - FAILURE
-</pre></div>
-</div>
-</div>
-<div class="section" id="operation-results">
-<h3>Operation results<a class="headerlink" href="#operation-results" title="Permalink to this headline">¶</a></h3>
-<p>In an <a class="reference external" href="#operation">operation</a> the key <code class="docutils literal"><span class="pre">results</span></code> is mapped to a list
-of key:value pairs of result names and boolean expressions.</p>
-<p>Defines the possible results of the <a class="reference external" href="#operation">operation</a>. By
-default, if no results exist, the result is <code class="docutils literal"><span class="pre">SUCCESS</span></code>. The first
-result in the list whose expression evaluates to true, or does not have
-an expression at all, will be passed back to the calling
-<a class="reference external" href="#task">task</a> to be used for <a class="reference external" href="#navigate">navigation</a> purposes.</p>
-<p>All <a class="reference external" href="#operation">operation</a> results must be handled by the calling
-<a class="reference external" href="#task">task</a>.</p>
-<p><strong>Example - three user-defined results</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>results:
-  - POSITIVE: polarity == &#39;+&#39;
-  - NEGATIVE: polarity == &#39;-&#39;
-  - NEUTRAL
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="required">
-<h2>required<a class="headerlink" href="#required" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">required</span></code> is a property of an <a class="reference external" href="#inputs">input</a> name. It is
-mapped to a boolean value.</p>
-<p>A value of <code class="docutils literal"><span class="pre">false</span></code> will allow the <a class="reference external" href="#flow">flow</a> or
-<a class="reference external" href="#operation">operation</a> to be called without passing the
-<a class="reference external" href="#inputs">input</a> parameter. If <code class="docutils literal"><span class="pre">required</span></code> is not defined, the
-<a class="reference external" href="#inputs">input</a> parameter defaults to being required.</p>
-<p><strong>Example - input2 is optional</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>inputs:
-  - input1
-  - input2:
-      required: false
-</pre></div>
-</div>
-</div>
-<div class="section" id="self">
-<h2>self<a class="headerlink" href="#self" title="Permalink to this headline">¶</a></h2>
-<p>May appear in the value of an <a class="reference external" href="#outputs">output</a>,
-<a class="reference external" href="#publish">publish</a> or <a class="reference external" href="#results">result</a> expression.</p>
-<p>Special syntax to refer to an <a class="reference external" href="#inputs">input</a> parameter as opposed
-to another variable with the same name in a narrower scope.</p>
-<p><strong>Example - output &#8220;input1&#8221; as it was passed in</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>outputs:
-  - output1: self[&#39;input1&#39;]
-</pre></div>
-</div>
-<p><strong>Example - usage in publish to refer to a variable in the flow&#8217;s
-scope</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>publish:
-  - total_cost: self[&#39;total_cost&#39;] + cost
-</pre></div>
-</div>
-</div>
-<div class="section" id="system-property">
-<h2>system_property<a class="headerlink" href="#system-property" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">system_property</span></code> is a property of an <a class="reference external" href="#inputs">input</a>
-name. It is mapped to a string of a key from a system properties file.</p>
-<p>The value referenced from a system properties file will be passed to the
-<a class="reference external" href="#flow">flow</a> or <a class="reference external" href="#operation">operation</a> if no other value for
-that <a class="reference external" href="#inputs">input</a> parameter is explicitly passed in or if the
-input&#8217;s <a class="reference external" href="#overridable">overridable</a> parameter is set to <code class="docutils literal"><span class="pre">false</span></code>.</p>
-<p><strong>Note:</strong> If multiple system properties files are being used and they
-contain a system property with the same fully qualified name, the
-property in the file that is loaded last will overwrite the others with
-the same name.</p>
-<p><a href="#id9"><span class="problematic" id="id10">**</span></a>Example - system properties **</p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>inputs:
-  - host:
-      system_property: examples.sysprops.hostname
-  - port:
-      system_property: examples.sysprops.port
-</pre></div>
-</div>
-<p>To pass a system properties file to the CLI, see <a class="reference external" href="cloudslang_cli.md#run-with-system-properties">Run with System
-Properties</a>.</p>
-</div>
-<div class="section" id="task">
-<h2>task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h2>
-<p>A name of a task which is a property of <a class="reference external" href="#workflow">workflow</a> or
-<a class="reference external" href="#on_failure">on_failure</a>.</p>
-<p>There are several types of tasks:</p>
-<ul class="simple">
-<li><a class="reference external" href="#standard-task">standard</a></li>
-<li><a class="reference external" href="#iterative-task">iterative</a></li>
-<li><a class="reference external" href="#asynchronous-task">asynchronous</a></li>
-</ul>
-<div class="section" id="standard-task">
-<h3>Standard Task<a class="headerlink" href="#standard-task" title="Permalink to this headline">¶</a></h3>
-<p>A standard task calls an <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">subflow</a> once.</p>
-<p>The task name is mapped to the task&#8217;s properties.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="7%" />
-<col width="5%" />
-<col width="29%" />
-<col width="12%" />
-<col width="22%" />
-<col width="26%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Required</th>
-<th class="head">Default</th>
-<th class="head">Value Type</th>
-<th class="head">Description</th>
-<th class="head">More Info</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">do</span></code></td>
-<td>yes</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>operation or subflow call</td>
-<td>the operation or subflow this task will run</td>
-<td><a class="reference external" href="#do">do</a> <a class="reference external" href="#operation">operation</a> <a class="reference external" href="#flow">flow</a></td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">publish</span></code></td>
-<td>no</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>list of key:value pairs</td>
-<td>operation outputs to publish to the flow level</td>
-<td><a class="reference external" href="#publish">publish</a> <a class="reference external" href="#outputs">outputs</a></td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">navigate</span></code></td>
-<td>no</td>
-<td><code class="docutils literal"><span class="pre">FAILURE</span></code>: on_failure or flow finish; <code class="docutils literal"><span class="pre">SUCCESS</span></code>: next task</td>
-<td>key:value pairs</td>
-<td>navigation logic from operation or flow results</td>
-<td><a class="reference external" href="#navigate">navigation</a> <a class="reference external" href="#results">results</a></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example - task that performs a division of two inputs, publishes the
-answer and navigates accordingly</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- divider:
-    do:
-      divide:
-        - dividend: input1
-        - divisor: input2
-    publish:
-      - answer: quotient
-    navigate:
-      ILLEGAL: FAILURE
-      SUCCESS: printer
-</pre></div>
-</div>
-</div>
-<div class="section" id="iterative-task">
-<h3>Iterative Task<a class="headerlink" href="#iterative-task" title="Permalink to this headline">¶</a></h3>
-<p>An iterative task calls an <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">subflow</a> iteratively, for each value in a list.</p>
-<p>The task name is mapped to the iterative task&#8217;s properties.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="6%" />
-<col width="4%" />
-<col width="25%" />
-<col width="7%" />
-<col width="39%" />
-<col width="19%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Required</th>
-<th class="head">Default</th>
-<th class="head">Value Type</th>
-<th class="head">Description</th>
-<th class="head">More Info</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">loop</span></code></td>
-<td>yes</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>key</td>
-<td>container for loop properties</td>
-<td><a class="reference external" href="#for">for</a></td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">navigate</span></code></td>
-<td>no</td>
-<td><code class="docutils literal"><span class="pre">FAILURE</span></code>: on_failure or flow finish; <code class="docutils literal"><span class="pre">SUCCESS</span></code>: next task</td>
-<td>key:value pairs</td>
-<td>navigation logic from <a class="reference external" href="#break">break</a> or the result of the last iteration of the operation or flow</td>
-<td><a class="reference external" href="#navigate">navigation</a> <a class="reference external" href="#results">results</a></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example - task prints all the values in value_list and then navigates
-to a task named &#8220;another_task&#8221;</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- print_values:
-    loop:
-      for: value in value_list
-      do:
-        print:
-          - text: value
-    navigate:
-      SUCCESS: another_task
-      FAILURE: FAILURE
-</pre></div>
-</div>
-</div>
-<div class="section" id="asynchronous-task">
-<h3>Asynchronous Task<a class="headerlink" href="#asynchronous-task" title="Permalink to this headline">¶</a></h3>
-<p>An asynchronous task calls an <a class="reference external" href="#operation">operation</a> or
-<a class="reference external" href="#flow">subflow</a> asynchronously, in parallel branches, for each value
-in a list.</p>
-<p>The task name is mapped to the asynchronous task&#8217;s properties.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="8%" />
-<col width="6%" />
-<col width="31%" />
-<col width="10%" />
-<col width="20%" />
-<col width="25%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Property</th>
-<th class="head">Required</th>
-<th class="head">Default</th>
-<th class="head">Value Type</th>
-<th class="head">Description</th>
-<th class="head">More Info</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">async_loop</span></code></td>
-<td>yes</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>key</td>
-<td>container for async loop properties</td>
-<td><a class="reference external" href="#async_loop">async_loop</a></td>
-</tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">aggregate</span></code></td>
-<td>no</td>
-<td><ul class="first last simple">
-<li></li>
-</ul>
-</td>
-<td>list of key:values</td>
-<td>values to aggregate from async branches</td>
-<td><a class="reference external" href="#aggregate">aggregate</a></td>
-</tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">navigate</span></code></td>
-<td>no</td>
-<td><code class="docutils literal"><span class="pre">FAILURE</span></code>: on_failure or flow finish; <code class="docutils literal"><span class="pre">SUCCESS</span></code>: next task</td>
-<td>key:value pairs</td>
-<td>navigation logic</td>
-<td><a class="reference external" href="#navigate">navigation</a> <a class="reference external" href="#results">results</a></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example - task prints all the values in value_list asynchronously and
-then navigates to a task named &#8220;another_task&#8221;</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>- print_values:
-    async_loop:
-      for: value in values_list
-      do:
-        print_branch:
-          - ID: value
-      publish:
-        - name
-    aggregate:
-        - name_list: map(lambda x:str(x[&#39;name&#39;]), branches_context)
-    navigate:
-        SUCCESS: another_task
-        FAILURE: FAILURE
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="workflow">
-<h2>workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
-<p>The key <code class="docutils literal"><span class="pre">workflow</span></code> is a property of a <a class="reference external" href="#flow">flow</a>. It is mapped
-to a list of the workflow&#8217;s <a class="reference external" href="#task">tasks</a>.</p>
-<p>Defines a container for the <a class="reference external" href="#task">tasks</a>, their <a class="reference external" href="#publish">published
-variables</a> and <a class="reference external" href="#navigate">navigation</a> logic.</p>
-<p>The first <a class="reference external" href="#task">task</a> in the workflow is the starting
-<a class="reference external" href="#task">task</a> of the flow. From there the flow continues sequentially
-by default upon receiving <a class="reference external" href="#results">results</a> of <code class="docutils literal"><span class="pre">SUCCESS</span></code>, to the
-flow finish or to <a class="reference external" href="#on_failure">on_failure</a> upon a
-<a class="reference external" href="#results">result</a> of <code class="docutils literal"><span class="pre">FAILURE</span></code>, or following whatever overriding
-<a class="reference external" href="#navigate">navigation</a> logic that is present.</p>
-<p>Propery|Required|Default|Value Type|Description|More Info &#8212;|
-<code class="docutils literal"><span class="pre">on_failure</span></code>|no|-|task|default navigation target for
-<code class="docutils literal"><span class="pre">FAILURE</span></code>|<a class="reference external" href="#on_failure">on_failure</a> <a class="reference external" href="#task">task</a></p>
-<p><strong>Example - workflow that divides two numbers and prints them out if the
-division was legal</strong></p>
-<div class="code yaml highlight-python"><div class="highlight"><pre>workflow:
-  - divider:
-      do:
-        divide:
-          - dividend: input1
-          - divisor: input2
-      publish:
-        - answer: quotient
-      navigate:
-        ILLEGAL: FAILURE
-        SUCCESS: printer
-  - printer:
-      do:
-        print:
-          - text: input1 + &quot;/&quot; + input2 + &quot; = &quot; + answer
-</pre></div>
-</div>
-</div>
 </div>
 
 
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">CloudSlang Files</a><ul>
-<li><a class="reference internal" href="#action">action</a><ul>
-<li><a class="reference internal" href="#java-action">java_action</a></li>
-<li><a class="reference internal" href="#python-script">python_script</a><ul>
-<li><a class="reference internal" href="#importing-external-python-packages">Importing External Python Packages</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#importing-python-scripts">Importing Python Scripts</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#aggregate">aggregate</a></li>
-<li><a class="reference internal" href="#async-loop">async_loop</a></li>
-<li><a class="reference internal" href="#branches-context">branches_context</a></li>
-<li><a class="reference internal" href="#break">break</a></li>
-<li><a class="reference internal" href="#default">default</a></li>
-<li><a class="reference internal" href="#do">do</a></li>
-<li><a class="reference internal" href="#flow">flow</a></li>
-<li><a class="reference internal" href="#for">for</a><ul>
-<li><a class="reference internal" href="#loop-for">loop: for</a><ul>
-<li><a class="reference internal" href="#iterating-through-a-list">Iterating through a list</a></li>
-<li><a class="reference internal" href="#iterating-through-a-map">Iterating through a map</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#async-loop-for">async_loop: for</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#get">get</a></li>
-<li><a class="reference internal" href="#imports">imports</a></li>
-<li><a class="reference internal" href="#inputs">inputs</a></li>
-<li><a class="reference internal" href="#loop">loop</a></li>
-<li><a class="reference internal" href="#name">name</a></li>
-<li><a class="reference internal" href="#namespace">namespace</a></li>
-<li><a class="reference internal" href="#navigate">navigate</a></li>
-<li><a class="reference internal" href="#on-failure">on_failure</a></li>
-<li><a class="reference internal" href="#operation">operation</a></li>
-<li><a class="reference internal" href="#outputs">outputs</a></li>
-<li><a class="reference internal" href="#overridable">overridable</a></li>
-<li><a class="reference internal" href="#publish">publish</a><ul>
-<li><a class="reference internal" href="#standard-publish">Standard publish</a></li>
-<li><a class="reference internal" href="#iterative-publish">Iterative publish</a></li>
-<li><a class="reference internal" href="#asynchronous-publish">Asynchronous publish</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#results">results</a><ul>
-<li><a class="reference internal" href="#flow-results">Flow results</a></li>
-<li><a class="reference internal" href="#operation-results">Operation results</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#required">required</a></li>
-<li><a class="reference internal" href="#self">self</a></li>
-<li><a class="reference internal" href="#system-property">system_property</a></li>
-<li><a class="reference internal" href="#task">task</a><ul>
-<li><a class="reference internal" href="#standard-task">Standard Task</a></li>
-<li><a class="reference internal" href="#iterative-task">Iterative Task</a></li>
-<li><a class="reference internal" href="#asynchronous-task">Asynchronous Task</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#workflow">workflow</a></li>
-</ul>
-</li>
-</ul>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cloudslang_dsl_reference.html" class="btn btn-neutral float-right" title="DSL Reference" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
 
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Sam.
     </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2015, Sam.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.4</a>
-      
-      |
-      <a href="_sources/index.txt"
-          rel="nofollow">Page source</a></li>
-    </div>
 
-    
+    </section>
 
-    
-  </body>
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
 </html>

@@ -9,11 +9,10 @@ Welcome to Test's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   cloudslang_cli
-   cloudslang_dsl_reference
-
+    cloudslang_dsl_reference
+    cloudslang_cli
 
 Indices and tables
 ==================

@@ -1,3 +1,6 @@
+CLI
++++
+
 There are several ways to get started with the CloudSlang CLI.
 
 Download and Run Pre-built CLI
