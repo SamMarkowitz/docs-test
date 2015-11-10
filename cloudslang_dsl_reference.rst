@@ -5,7 +5,7 @@ CloudSlang is a `YAML <http://www.yaml.org>`__ (version 1.2) based
 language for describing a workflow. Using CloudSlang you can easily
 define a workflow in a structured, easy-to-understand format that can be
 run by the CloudSlang Orchestration Engine (Score). CloudSlang files can
-be run by the `CloudSlang CLI <cloudslang_cli>` or by an embedded
+be run by the :doc:`CloudSlang CLI <cloudslang_cli>` or by an embedded
 instance of Score using the `Slang
 API <developer_cloudslang.md#slang-api>`__.
 
