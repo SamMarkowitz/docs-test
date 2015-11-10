@@ -155,7 +155,7 @@ uses the following annotations from
       - SUCCESS : someActionOutput == '0'
       - FAILURE
 
-.. code:: java
+.. code-block:: java
 
     public Map<String, String> doMyAction(
             @Param("input1") String input1,
