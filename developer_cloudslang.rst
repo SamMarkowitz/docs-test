@@ -72,6 +72,9 @@ Embed CloudSlang in a Java Application
         }
     });
 
+
+.. _slang_api:
+
 Slang API
 =========
 

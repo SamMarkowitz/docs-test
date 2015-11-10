@@ -1,8 +1,11 @@
+DSL Reference
++++++++++++++
+
 CloudSlang is a `YAML <http://www.yaml.org>`__ (version 1.2) based
 language for describing a workflow. Using CloudSlang you can easily
 define a workflow in a structured, easy-to-understand format that can be
 run by the CloudSlang Orchestration Engine (Score). CloudSlang files can
-be run by the :docs:`CloudSlang CLI <cloudslang_cli>` or by an embedded
+be run by the :doc:`CloudSlang CLI <cloudslang_cli>` or by an embedded
 instance of Score using the :ref:`Slang API <slang_api>`.
 
 This reference begins with a brief introduction to CloudSlang files and
@@ -24,15 +27,15 @@ There are two types of CloudSlang files:
 -  operation - contains an action that runs a script or method
 
 The following properties are for all types of CloudSlang files. For
-properties specific to `flows <flow>` or `operations <#operation>`__,
+properties specific to `flows <#flow>`__ or `operations <#operation>`__,
 see their respective sections below.
 
 +-----------------+------------+-----------+---------------------------+-------------------------+------------------------------+
 | Property        | Required   | Default   | Value Type                | Description             | More Info                    |
 +=================+============+===========+===========================+=========================+==============================+
-| ``namespace``   | no         | -         | string                    | namespace of the flow   | `namespace <#namespace>`__   |
+| ``namespace``   | no         | --        | string                    | namespace of the flow   | `namespace <#namespace>`__   |
 +-----------------+------------+-----------+---------------------------+-------------------------+------------------------------+
-| ``imports``     | no         | -         | list of key:value pairs   | files to import         | `imports <#imports>`__       |
+| ``imports``     | no         | --        | list of key:value pairs   | files to import         | `imports <#imports>`__       |
 +-----------------+------------+-----------+---------------------------+-------------------------+------------------------------+
 
 The general structure of CloudSlang files is outlined here. Some of the
@@ -50,7 +53,7 @@ and concepts are explained in detail below.
    -  `required <#required>`__
    -  `default <#default>`__
    -  `overridable <#overridable>`__
-   -  `system\_property <#system_property>`__
+   -  `system_property <#system-property>`__
 
 -  `workflow <#workflow>`__
 
@@ -68,7 +71,7 @@ and concepts are explained in detail below.
 
    -  `navigate <#navigate>`__
    -  `asynchronous task <#asynchronous-task>`__
-   -  `async\_loop <#async_loop>`__
+   -  `async\_loop <#async-loop>`__
 
       -  `for <#for>`__
       -  `do <#do>`__
@@ -76,7 +79,7 @@ and concepts are explained in detail below.
 
    -  `aggregate <#aggregate>`__
    -  `navigate <#navigate>`__
-   -  `on\_failure <#on_failure>`__
+   -  `on\_failure <#on-failure>`__
 
 -  `outputs <#outputs>`__
 -  `results <#results>`__
@@ -92,7 +95,7 @@ and concepts are explained in detail below.
    -  `required <#required>`__
    -  `default <#default>`__
    -  `overridable <#overridable>`__
-   -  `system\_property <#system_property>`__
+   -  `system\_property <#system-property>`__
 
 -  `action <#action>`__
 -  `outputs <#outputs>`__
@@ -108,16 +111,16 @@ action
 
 The key ``action`` is a property of an `operation <#operation>`__. It is
 mapped to a property that defines the type of action, which can be a
-`java\_action <#java_action>`__ or `python\_script <#python_script>`__.
+`java_action <#java-action>`__ or `python_script <#python-script>`__.
 
 .. _java_action:
 
-java\_action
+java_action
 ~~~~~~~~~~~~
 
-| The key ``java_action`` is a property of `action <#action>`__.
-| It is mapped to the properties that define the class and method where
-  the @Action resides.
+The key ``java_action`` is a property of `action <#action>`__.
+It is mapped to the properties that define the class and method where
+the @Action resides.
 
 A ``java_action`` is a valid @Action that conforms to the method
 signature: ``public Map<String, String> doSomething(paramaters)`` and
@@ -165,7 +168,7 @@ uses the following annotations from
 
 .. _python_script:
 
-python\_script
+python_script
 ~~~~~~~~~~~~~~
 
 | The key ``python_script`` is a property of `action <#action>`__.
@@ -275,7 +278,7 @@ will need to add the **python-lib** folder's path to its value.
 3. Import the module and use it.
 
 **Example - takes path as input parameter, adds it to sys.path and
-imports desired module **
+imports desired module**
 
 .. code:: yaml
 
@@ -328,7 +331,7 @@ task <#asynchronous-task>`__ have completed.
 
 .. _async_loop:
 
-async\_loop
+async_loop
 -----------
 
 The key ``asyc_loop`` is a property of an `asynchronous
@@ -422,7 +425,7 @@ iteration will continue even when a result of ``FAILURE`` is returned by
 defining alternate break behavior or mapping the ``break`` key to an
 empty list (``[]``).
 
-**Example - loop that breaks on result of CUSTOM **
+**Example - loop that breaks on result of CUSTOM**
 
 .. code:: yaml
 
@@ -436,7 +439,7 @@ empty list (``[]``).
     navigate:
       CUSTOM: print_end
 
-**Example - loop that continues even on result of FAILURE **
+**Example - loop that continues even on result of FAILURE**
 
 .. code:: yaml
 
@@ -461,7 +464,7 @@ The expression's value will be passed to the `flow <#flow>`__ or
 `overridable <#overridable>`__ parameter is set to ``false`` and there
 is no `system\_property <#system_property>`__ parameter defined.
 
-**Example - default values **
+**Example - default values**
 
 .. code:: yaml
 
@@ -1259,7 +1262,7 @@ scope**
 
 .. _system_property:
 
-system\_property
+system_property
 ----------------
 
 The key ``system_property`` is a property of an `input <#inputs>`__
@@ -1275,7 +1278,7 @@ contain a system property with the same fully qualified name, the
 property in the file that is loaded last will overwrite the others with
 the same name.
 
-**Example - system properties **
+**Example - system properties**
 
 .. code:: yaml
 
