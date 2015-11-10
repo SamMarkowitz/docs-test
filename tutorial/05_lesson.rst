@@ -24,11 +24,24 @@ workflow. It works the same way as inputs to an operation.
       inputs:
         - address
 
+Just as with an operation, values for the inputs of a flow are either
+passed via the `CloudSlang CLI <../cloudslang_cli.md>`__, as we do below
+in this lesson, or from a task in a calling flow, as in lesson `9 -
+Subflows <09_lesson.md>`__.
+
+Inputs can also have related parameters, such as ``required``,
+``default``, ``overridable`` and ``system_property``. We will discuss
+these parameters in lessons `8 - Input Parameters <08_lesson.md>`__ and
+`13 - System Properties <13_lesson.md>`__.
+
 New Task
 --------
 
 Now we can add a new task to our flow. We'll add it right after the
-``print_start`` task and call it ``check_address``.
+``print_start`` task and call it ``check_address``. Here, since both the
+flow and the operation are in the same folder, the ``do`` section does
+not need to use an alias or path to reference the operation like we
+needed with the ``print`` operation in the ``print_start`` task.
 
 .. code:: yaml
 
@@ -40,11 +53,11 @@ Now we can add a new task to our flow. We'll add it right after the
               - availability: available
 
 First note that in the ``check_address`` task, the ``address`` input
-name is not given a default value, as the ``text`` input is given in the
-``print_start`` task. It's not necessary here because the ``address``
-input name in the ``check_availability`` operation matches the
-``address`` input name in the flow. The value input to the flow will get
-passed to the operation input with the same name.
+name is not given an explicit value, as the ``text`` input is given in
+the ``print_start`` task. It's not necessary here because the
+``address`` input name in the ``check_availability`` operation matches
+the ``address`` input name in the flow. The value input to the flow will
+get passed to the operation input with the same name.
 
 Publish
 -------
@@ -75,8 +88,8 @@ task along with some of the flow input variables in the expression.
                 - text: "'Availability for address ' + address + ' is: ' + str(availability)"
 
 Once again take note of the quoting that is necessary. The double quotes
-(") encompass a Python expression which uses single quotes (') for its
-string literals and no additional quotes for the variable names.
+(``"``) encompass a Python expression which uses single quotes (``'``)
+for its string literals and no additional quotes for the variable names.
 
 Run It
 ------

@@ -1,13 +1,9 @@
-DSL Reference
-+++++++++++++
-
 CloudSlang is a `YAML <http://www.yaml.org>`__ (version 1.2) based
 language for describing a workflow. Using CloudSlang you can easily
 define a workflow in a structured, easy-to-understand format that can be
 run by the CloudSlang Orchestration Engine (Score). CloudSlang files can
-be run by the :doc:`CloudSlang CLI <cloudslang_cli>` or by an embedded
-instance of Score using the `Slang
-API <developer_cloudslang.md#slang-api>`__.
+be run by the :docs:`CloudSlang CLI <cloudslang_cli>` or by an embedded
+instance of Score using the :ref:`Slang API <slang_api>`.
 
 This reference begins with a brief introduction to CloudSlang files and
 their structure, an alphabetical listing of CloudSlang keywords and
@@ -140,7 +136,7 @@ uses the following annotations from
 
 **Example - CloudSlang call to a Java @Action**
 
-.. code-block:: yaml
+.. code:: yaml
 
     name: pull_image
     inputs:
@@ -185,7 +181,7 @@ see the `Jython FAQ <https://wiki.python.org/jython/JythonFaq>`__.
 
 **Example - action with Python script that divides two numbers**
 
-.. code-block:: yaml
+.. code:: yaml
 
     name: divide
     inputs:
@@ -206,8 +202,6 @@ see the `Jython FAQ <https://wiki.python.org/jython/JythonFaq>`__.
 **Note:** Single-line Python scripts can be written inline with the
 ``python_script`` key. Multi-line Python scripts can use the YAML pipe
 (``|``) indicator as in the example above.
-
-.. _importing_external_python_packages:
 
 Importing External Python Packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -249,7 +243,7 @@ how to install.
 4. Import the package as you normally would in Python from within the
    action's ``python_script``:
 
-.. code-block:: yaml
+.. code:: yaml
 
     action:
       python_script: |
@@ -281,9 +275,9 @@ will need to add the **python-lib** folder's path to its value.
 3. Import the module and use it.
 
 **Example - takes path as input parameter, adds it to sys.path and
-imports desired module**
+imports desired module **
 
-.. code-block:: yaml
+.. code:: yaml
 
     inputs:
       - path
@@ -293,8 +287,6 @@ imports desired module**
         sys.path.append(path)
         import module_to_import
         print module_to_import.something()
-
-.. _importing_python_scripts:
 
 Importing Python Scripts
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -329,7 +321,7 @@ task <#asynchronous-task>`__ have completed.
 
 **Example - aggregates all of the published names into name\_list**
 
-.. code-block:: yaml
+.. code:: yaml
 
     aggregate:
       - name_list: map(lambda x:str(x['name']), branches_context)
@@ -349,18 +341,19 @@ the branches have finished, the `asynchronous
 task's <#asynchronous-task>`__ `aggregation <#aggregate>`__ and
 `navigation <#navigate>`__ will run.
 
-Property\|Required\|Default\|Value Type\|Description\|More Info ---\|
-``for``\ \|yes\|-\|variable ``in`` list\|loop values\|\ `for <#for>`__
-``do``\ \|yes\|-\|operation or subflow call\|the operation or subflow
-this task will run in parallel\|\ `do <#do>`__
-`operation <#operation>`__ `flow <#flow>`__ ``publish``\ \|no\|-\|list
-of key:value pairs\|operation or subflow outputs to aggregate and
-publish to the flow level\|\ `publish <#publish>`__
-`aggregate <#aggregate>`__ `outputs <#outputs>`__
++---------------+------------+-----------+-----------------------------+---------------------------------------------------------------------------+----------------------------------------------------------------------------+
+| Property      | Required   | Default   | Value Type                  | Description                                                               | More Info                                                                  |
++===============+============+===========+=============================+===========================================================================+============================================================================+
+| ``for``       | yes        | -         | variable ``in`` list        | loop values                                                               | `for <#for>`__                                                             |
++---------------+------------+-----------+-----------------------------+---------------------------------------------------------------------------+----------------------------------------------------------------------------+
+| ``do``        | yes        | -         | operation or subflow call   | the operation or subflow this task will run in parallel                   | `do <#do>`__ `operation <#operation>`__ `flow <#flow>`__                   |
++---------------+------------+-----------+-----------------------------+---------------------------------------------------------------------------+----------------------------------------------------------------------------+
+| ``publish``   | no         | -         | list of key:value pairs     | operation or subflow outputs to aggregate and publish to the flow level   | `publish <#publish>`__ `aggregate <#aggregate>`__ `outputs <#outputs>`__   |
++---------------+------------+-----------+-----------------------------+---------------------------------------------------------------------------+----------------------------------------------------------------------------+
 
 **Example: loop that breaks on a result of custom**
 
-.. code-block:: yaml
+.. code:: yaml
 
      - print_values:
          async_loop:
@@ -395,7 +388,7 @@ branch's place in the finishing order and the name of the variable.
 **Example - retrieves the published name variable from the first branch
 to finish**
 
-.. code-block:: yaml
+.. code:: yaml
 
     aggregate:
       - first_name: branches_context[0]['name']
@@ -405,7 +398,7 @@ that have been published by all of the branches.
 
 **Example - aggregates all of the published name values into a list**
 
-.. code-block:: yaml
+.. code:: yaml
 
     aggregate:
       - name_list: map(lambda x:str(x['name']), branches_context)
@@ -429,9 +422,9 @@ iteration will continue even when a result of ``FAILURE`` is returned by
 defining alternate break behavior or mapping the ``break`` key to an
 empty list (``[]``).
 
-**Example - loop that breaks on result of CUSTOM**
+**Example - loop that breaks on result of CUSTOM **
 
-.. code-block:: yaml
+.. code:: yaml
 
     loop:
       for: value in range(1,7)
@@ -443,9 +436,9 @@ empty list (``[]``).
     navigate:
       CUSTOM: print_end
 
-**Example - loop that continues even on result of FAILURE**
+**Example - loop that continues even on result of FAILURE **
 
-.. code-block:: yaml
+.. code:: yaml
 
     loop:
       for: value in range(1,7)
@@ -468,9 +461,9 @@ The expression's value will be passed to the `flow <#flow>`__ or
 `overridable <#overridable>`__ parameter is set to ``false`` and there
 is no `system\_property <#system_property>`__ parameter defined.
 
-**Example - default values**
+**Example - default values **
 
-.. code-block:: yaml
+.. code:: yaml
 
     inputs:
       - str_literal:
@@ -485,7 +478,7 @@ to the `input <#inputs>`__ parameter's key.
 
 **Example - inline default values**
 
-.. code-block:: yaml
+.. code:: yaml
 
     inputs:
       - str_literal: "'default value'"
@@ -538,7 +531,7 @@ Expression values will supersede values bound to flow
 **Example - call to a divide operation with list of mapped task
 arguments**
 
-.. code-block:: yaml
+.. code:: yaml
 
     do:
       divide:
@@ -547,7 +540,7 @@ arguments**
 
 **Example - call to a divide operation with comma-separated pairs**
 
-.. code-block:: yaml
+.. code:: yaml
 
     do:
       divide: dividend = input1, divisor = input2
@@ -564,23 +557,23 @@ A flow is the basic executable unit of CloudSlang. A flow can run on its
 own or it can be used by another flow in the `do <#do>`__ property of a
 `task <#task>`__.
 
-+----------------+------------+-----------------------------+----------------+--------------------------------+----------------------------+
-| Property       | Required   | Default                     | Value Type     | Description                    | More Info                  |
-+================+============+=============================+================+================================+============================+
-| ``name``       | yes        | -                           | string         | name of the flow               | `name <#name>`__           |
-+----------------+------------+-----------------------------+----------------+--------------------------------+----------------------------+
-| ``inputs``     | no         | -                           | list           | inputs for the flow            | `inputs <#inputs>`__       |
-+----------------+------------+-----------------------------+----------------+--------------------------------+----------------------------+
-| ``workflow``   | yes        | -                           | map of tasks   | container for set of tasks     | `workflow <#workflow>`__   |
-+----------------+------------+-----------------------------+----------------+--------------------------------+----------------------------+
-| ``outputs``    | no         | -                           | list           | list of outputs                | `outputs <#outputs>`__     |
-+----------------+------------+-----------------------------+----------------+--------------------------------+----------------------------+
-| ``results``    | no         | (``SUCCESS``/``FAILURE``)   | list           | possible results of the flow   | `results <#results>`__     |
-+----------------+------------+-----------------------------+----------------+--------------------------------+----------------------------+
++----------------+------------+--------------------------------+----------------+--------------------------------+----------------------------+
+| Property       | Required   | Default                        | Value Type     | Description                    | More Info                  |
++================+============+================================+================+================================+============================+
+| ``name``       | yes        | -                              | string         | name of the flow               | `name <#name>`__           |
++----------------+------------+--------------------------------+----------------+--------------------------------+----------------------------+
+| ``inputs``     | no         | -                              | list           | inputs for the flow            | `inputs <#inputs>`__       |
++----------------+------------+--------------------------------+----------------+--------------------------------+----------------------------+
+| ``workflow``   | yes        | -                              | map of tasks   | container for set of tasks     | `workflow <#workflow>`__   |
++----------------+------------+--------------------------------+----------------+--------------------------------+----------------------------+
+| ``outputs``    | no         | -                              | list           | list of outputs                | `outputs <#outputs>`__     |
++----------------+------------+--------------------------------+----------------+--------------------------------+----------------------------+
+| ``results``    | no         | (``SUCCESS`` / ``FAILURE`` )   | list           | possible results of the flow   | `results <#results>`__     |
++----------------+------------+--------------------------------+----------------+--------------------------------+----------------------------+
 
 **Example - a flow that performs a division of two numbers**
 
-.. code-block:: yaml
+.. code:: yaml
 
     flow:
       name: division_flow
@@ -622,8 +615,6 @@ for
 The key ``for`` is a property of a `loop <#loop>`__ or an
 `async\_loop <#async_loop>`__.
 
-.. _loop_for:
-
 loop: for
 ~~~~~~~~~
 
@@ -632,8 +623,6 @@ A for loop iterates through a `list <#iterating-through-a-list>`__ or a
 
 The `iterative task <#iterative-task>`__ will run once for each element
 in the list or key in the map.
-
-.. _iterating through a list:
 
 Iterating through a list
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -644,7 +633,7 @@ evaluates to a list, or a comma delimited string.
 
 **Example - loop that iterates through the values in a list**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - print_values:
         loop:
@@ -656,7 +645,7 @@ evaluates to a list, or a comma delimited string.
 **Example - loop that iterates through the values in a comma delimited
 string**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - print_values:
         loop:
@@ -668,7 +657,7 @@ string**
 **Example - loop that iterates through the values returned from an
 expression**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - print_values:
         loop:
@@ -676,8 +665,6 @@ expression**
           do:
             print:
               - text: value
-
-.. _iterating_through_a_map:
 
 Iterating through a map
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -689,7 +676,7 @@ an expression that evaluates to a map.
 **Example - task that iterates through the values returned from an
 expression**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - print_values:
         loop:
@@ -698,8 +685,6 @@ expression**
             print2:
               - text1: k
               - text2: v
-
-.. _async_loop_for:
 
 async\_loop: for
 ~~~~~~~~~~~~~~~~
@@ -715,7 +700,7 @@ followed by a list or an expression that evaluates to a list.
 **Example - task that asynchronously loops through the values in a
 list**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - print_values:
         async_loop:
@@ -740,7 +725,7 @@ returns the ``default_value``.
 
 **Example - usage of get function in inputs and outputs**
 
-.. code-block:: yaml
+.. code:: yaml
 
     inputs:
       - input1:
@@ -777,7 +762,7 @@ referenced by in the file. Using an alias is one way to reference the
 
 **Example - import operations and sublflow into flow**
 
-.. code-block:: yaml
+.. code:: yaml
 
     imports:
       ops: examples.utils
@@ -807,19 +792,21 @@ Inputs are used to pass parameters to `flows <#flow>`__ or
 Input properties may also be used in the input list of a
 `task <#task>`__.
 
-Property\|Required\|Default\|Value Type\|Description\|More info ---\|
-``required``\ \|no\|true\|boolean\|is the input
-required\|\ `required <#required>`__
-``default``\ \|no\|-\|expression\|default value of the
-input\|\ `default <#default>`__ ``overridable``\ \|no\|true\|boolean\|if
-false, the default value always overrides values passed
-in\|\ `overridable <#overridable>`__
-``system_property``\ \|no\|-\|string\|the name of a system property
-variable\|\ `system\_property <#system_property>`__
++-----------------------+------------+-----------+--------------+-----------------------------------------------------------------+-------------------------------------------+
+| Property              | Required   | Default   | Value Type   | Description                                                     | More info                                 |
++=======================+============+===========+==============+=================================================================+===========================================+
+| ``required``          | no         | true      | boolean      | is the input required                                           | `required <#required>`__                  |
++-----------------------+------------+-----------+--------------+-----------------------------------------------------------------+-------------------------------------------+
+| ``default``           | no         | -         | expression   | default value of the input                                      | `default <#default>`__                    |
++-----------------------+------------+-----------+--------------+-----------------------------------------------------------------+-------------------------------------------+
+| ``overridable``       | no         | true      | boolean      | if false, the default value always overrides values passed in   | `overridable <#overridable>`__            |
++-----------------------+------------+-----------+--------------+-----------------------------------------------------------------+-------------------------------------------+
+| ``system_property``   | no         | -         | string       | the name of a system property variable                          | `system\_property <#system_property>`__   |
++-----------------------+------------+-----------+--------------+-----------------------------------------------------------------+-------------------------------------------+
 
 **Example - two inputs**
 
-.. code-block:: yaml
+.. code:: yaml
 
     inputs:
       - input1:
@@ -842,21 +829,21 @@ result is in the ``break`` list, or if ``break`` does not appear and the
 returned result is ``FAILURE``, or if the list has been exhausted, the
 task's navigation will run.
 
-Property\|Required\|Default\|Value Type\|Description\|More Info ---\|
-``for``\ \|yes\|-\|variable ``in`` list or key, value ``in``
-map\|iteration logic\|\ `for <#for>`__ ``do``\ \|yes\|-\|operation or
-subflow call\|the operation or subflow this task will run
-iteratively\|\ `do <#do>`__ `operation <#operation>`__ `flow <#flow>`__
-``publish``\ \|no\|-\|list of key:value pairs\|operation or subflow
-outputs to aggregate and publish to the flow
-level\|\ `publish <#publish>`__ `outputs <#outputs>`__
-``break``\ \|no\|-\|list of `results <#result>`__\ \|operation or
-subflow `results <#result>`__ on which to break out of the
-loop\|\ `break <#break>`__
++---------------+------------+-----------+-------------------------------------------------+--------------------------------------------------------------------------------+------------------------------------------------------------+
+| Property      | Required   | Default   | Value Type                                      | Description                                                                    | More Info                                                  |
++===============+============+===========+=================================================+================================================================================+============================================================+
+| ``for``       | yes        | -         | variable ``in`` list or key, value ``in`` map   | iteration logic                                                                | `for <#for>`__                                             |
++---------------+------------+-----------+-------------------------------------------------+--------------------------------------------------------------------------------+------------------------------------------------------------+
+| ``do``        | yes        | -         | operation or subflow call                       | the operation or subflow this task will run iteratively                        | `do <#do>`__ `operation <#operation>`__ `flow <#flow>`__   |
++---------------+------------+-----------+-------------------------------------------------+--------------------------------------------------------------------------------+------------------------------------------------------------+
+| ``publish``   | no         | -         | list of key:value pairs                         | operation or subflow outputs to aggregate and publish to the flow level        | `publish <#publish>`__ `outputs <#outputs>`__              |
++---------------+------------+-----------+-------------------------------------------------+--------------------------------------------------------------------------------+------------------------------------------------------------+
+| ``break``     | no         | -         | list of `results <#result>`__                   | operation or subflow `results <#result>`__ on which to break out of the loop   | `break <#break>`__                                         |
++---------------+------------+-----------+-------------------------------------------------+--------------------------------------------------------------------------------+------------------------------------------------------------+
 
 **Example: loop that breaks on a result of custom**
 
-.. code-block:: yaml
+.. code:: yaml
 
      - custom3:
          loop:
@@ -884,7 +871,7 @@ when called from a `flow <#flow>`__'s `task <#task>`__.
 
 **Example - naming the flow *division\_flow***
 
-.. code-block:: yaml
+.. code:: yaml
 
     name: division_flow
 
@@ -901,13 +888,13 @@ dependencies.
 
 **Example - definition a namespace**
 
-.. code-block:: yaml
+.. code:: yaml
 
     namespace: examples.hello_world
 
 **Example - using a namespace in an imports definition**
 
-.. code-block:: yaml
+.. code:: yaml
 
     imports:
       ops: examples.hello_world
@@ -962,7 +949,7 @@ evaluated as ``SUCCESS``.
 **Example - ILLEGAL result will navigate to flow's FAILURE result and
 SUCCESS result will navigate to task named *printer***
 
-.. code-block:: yaml
+.. code:: yaml
 
     navigate:
       ILLEGAL: FAILURE
@@ -985,7 +972,7 @@ Defines the `task <#task>`__, which when using default
 **Example - failure task which call a print operation to print an error
 message**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - on_failure:
       - failure:
@@ -1001,17 +988,21 @@ operation
 The key ``operation`` is mapped to the properties which make up the
 operation contents.
 
-Property\|Required\|Default\|Value Type\|Description\|More Info ---\|
-inputs\|no\|-\|list\|operation inputs\|\ `inputs <#inputs>`__
-action\|yes\|-\|\ ``python_script`` or ``java_action``\ \|operation
-logic\|\ `action <#action>`__ outputs\|no\|-\|list\|operation
-outputs\|\ `outputs <#outputs>`__
-results\|no\|\ ``SUCCESS``\ \|list\|possible operation
-results\|\ `results <#results>`__
++---------------+------------+---------------+----------------------------------------+------------------------------+--------------------------+
+| Property      | Required   | Default       | Value Type                             | Description                  | More Info                |
++===============+============+===============+========================================+==============================+==========================+
+| ``inputs``    | no         | -             | list                                   | operation inputs             | `inputs <#inputs>`__     |
++---------------+------------+---------------+----------------------------------------+------------------------------+--------------------------+
+| ``action``    | yes        | -             | ``python_script`` or ``java_action``   | operation logic              | `action <#action>`__     |
++---------------+------------+---------------+----------------------------------------+------------------------------+--------------------------+
+| ``outputs``   | no         | -             | list                                   | operation outputs            | `outputs <#outputs>`__   |
++---------------+------------+---------------+----------------------------------------+------------------------------+--------------------------+
+| ``results``   | no         | ``SUCCESS``   | list                                   | possible operation results   | `results <#results>`__   |
++---------------+------------+---------------+----------------------------------------+------------------------------+--------------------------+
 
 **Example - operation that adds two inputs and outputs the answer**
 
-.. code-block:: yaml
+.. code:: yaml
 
     name: add
     inputs:
@@ -1042,7 +1033,7 @@ See also `self <#self>`__.
 
 **Example - various types of outputs**
 
-.. code-block:: yaml
+.. code:: yaml
 
     outputs:
       - existing_variable
@@ -1067,7 +1058,7 @@ If ``overridable`` is not defined, values passed in will override the
 **Example - default value of text input parameter will not be overridden
 by values passed in**
 
-.. code-block:: yaml
+.. code:: yaml
 
     inputs:
       - text:
@@ -1085,8 +1076,6 @@ list of key:value pairs where the key is the published variable name and
 the value is the name of the `output <#outputs>`__ received from an
 `operation <#operation>`__ or `flow <#flow>`__.
 
-.. _standard_publish:
-
 Standard publish
 ~~~~~~~~~~~~~~~~
 
@@ -1098,7 +1087,7 @@ as the `flow's <#flow>`__ own `output <#outputs>`__.
 
 **Example - publish the quotient output as ans**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - division1:
         do:
@@ -1107,8 +1096,6 @@ as the `flow's <#flow>`__ own `output <#outputs>`__.
             - input2: divisor1
         publish:
           - ans: quotient
-
-.. _iterative_publish:
 
 Iterative publish
 ~~~~~~~~~~~~~~~~~
@@ -1119,7 +1106,7 @@ during each iteration after the `operation <#operation>`__ or
 
 **Example - publishing in an iterative task to aggregate output**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - aggregate:
         loop:
@@ -1129,8 +1116,6 @@ during each iteration after the `operation <#operation>`__ or
               - text: value
           publish:
             - sum: self['sum'] + out
-
-.. _asynchronous_publish:
 
 Asynchronous publish
 ~~~~~~~~~~~~~~~~~~~~
@@ -1144,7 +1129,7 @@ received from finished branches, allowing for aggregation.
 
 **Example - publishing in an iterative task to aggregate output**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - print_values:
         async_loop:
@@ -1174,8 +1159,6 @@ purposes.
 evaluated are ``SUCCESS`` and ``FAILURE``. Any other results will be
 evaluated as ``SUCCESS``.
 
-.. _flow_results:
-
 Flow results
 ~~~~~~~~~~~~
 
@@ -1195,14 +1178,12 @@ all `flow <#flow>`__ results must be handled by the calling
 
 **Example - a user-defined result**
 
-.. code-block:: yaml
+.. code:: yaml
 
     results:
       - SUCCESS
       - ILLEGAL
       - FAILURE
-
-.. _operation_results:
 
 Operation results
 ~~~~~~~~~~~~~~~~~
@@ -1221,7 +1202,7 @@ All `operation <#operation>`__ results must be handled by the calling
 
 **Example - three user-defined results**
 
-.. code-block:: yaml
+.. code:: yaml
 
     results:
       - POSITIVE: polarity == '+'
@@ -1243,7 +1224,7 @@ A value of ``false`` will allow the `flow <#flow>`__ or
 
 **Example - input2 is optional**
 
-.. code-block:: yaml
+.. code:: yaml
 
     inputs:
       - input1
@@ -1263,7 +1244,7 @@ to another variable with the same name in a narrower scope.
 
 **Example - output "input1" as it was passed in**
 
-.. code-block:: yaml
+.. code:: yaml
 
     outputs:
       - output1: self['input1']
@@ -1271,7 +1252,7 @@ to another variable with the same name in a narrower scope.
 **Example - usage in publish to refer to a variable in the flow's
 scope**
 
-.. code-block:: yaml
+.. code:: yaml
 
     publish:
       - total_cost: self['total_cost'] + cost
@@ -1294,9 +1275,9 @@ contain a system property with the same fully qualified name, the
 property in the file that is loaded last will overwrite the others with
 the same name.
 
-**Example - system properties**
+**Example - system properties **
 
-.. code-block:: yaml
+.. code:: yaml
 
     inputs:
       - host:
@@ -1321,8 +1302,6 @@ There are several types of tasks:
 -  `iterative <#iterative-task>`__
 -  `asynchronous <#asynchronous-task>`__
 
-.. _standard_task:
-
 Standard Task
 ~~~~~~~~~~~~~
 
@@ -1344,7 +1323,7 @@ The task name is mapped to the task's properties.
 **Example - task that performs a division of two inputs, publishes the
 answer and navigates accordingly**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - divider:
         do:
@@ -1356,8 +1335,6 @@ answer and navigates accordingly**
         navigate:
           ILLEGAL: FAILURE
           SUCCESS: printer
-
-.. _iterative_task:
 
 Iterative Task
 ~~~~~~~~~~~~~~
@@ -1378,7 +1355,7 @@ The task name is mapped to the iterative task's properties.
 **Example - task prints all the values in value\_list and then navigates
 to a task named "another\_task"**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - print_values:
         loop:
@@ -1389,8 +1366,6 @@ to a task named "another\_task"**
         navigate:
           SUCCESS: another_task
           FAILURE: FAILURE
-
-.. _asynchronous_task:
 
 Asynchronous Task
 ~~~~~~~~~~~~~~~~~
@@ -1414,7 +1389,7 @@ The task name is mapped to the asynchronous task's properties.
 **Example - task prints all the values in value\_list asynchronously and
 then navigates to a task named "another\_task"**
 
-.. code-block:: yaml
+.. code:: yaml
 
     - print_values:
         async_loop:
@@ -1448,14 +1423,16 @@ flow finish or to `on\_failure <#on_failure>`__ upon a
 `result <#results>`__ of ``FAILURE``, or following whatever overriding
 `navigation <#navigate>`__ logic that is present.
 
-Propery\|Required\|Default\|Value Type\|Description\|More Info ---\|
-``on_failure``\ \|no\|-\|task\|default navigation target for
-``FAILURE``\ \|\ `on\_failure <#on_failure>`__ `task <#task>`__
++------------------+------------+-----------+--------------+---------------------------------------------+--------------------------------------------------+
+| Propery          | Required   | Default   | Value Type   | Description                                 | More Info                                        |
++==================+============+===========+==============+=============================================+==================================================+
+| ``on_failure``   | no         | -         | task         | default navigation target for ``FAILURE``   | `on\_failure <#on_failure>`__ `task <#task>`__   |
++------------------+------------+-----------+--------------+---------------------------------------------+--------------------------------------------------+
 
 **Example - workflow that divides two numbers and prints them out if the
 division was legal**
 
-.. code-block:: yaml
+.. code:: yaml
 
     workflow:
       - divider:

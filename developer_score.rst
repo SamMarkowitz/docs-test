@@ -1,6 +1,3 @@
-Score
-+++++
-
 Embedded Engine
 ===============
 
@@ -37,7 +34,7 @@ Embed Score in a Java Application
                 xmlns:score="http://www.openscore.org/schema/score"
                 xsi:schemaLocation="http://www.springframework.org/schema/beans
                 http://www.springframework.org/schema/beans/spring-beans.xsd
-                http://www.openscore.org/schema/score
+                http://www.openscore.org/schema/score 
                 http://www.openscore.org/schema/score.xsd">
 
       <score:engine/>
@@ -45,7 +42,7 @@ Embed Score in a Java Application
       <score:worker uuid="-1"/>
 
       <bean class="io.openscore.example.ScoreEmbed"/>
-    </beans>
+    </beans>  
 
 -  Interact with Score using the `Score API <#score-api>`__.
 
@@ -233,18 +230,20 @@ populated with ``null``.
 There are some argument names that have a special meaning when used as
 control action or navigation action method arguments:
 
-::
+-  **executionRuntimeServices** - Score will populate this argument with
+   the `ExecutionRuntimeServices <#executionruntimeservices>`__ object.
 
-    +  **executionRuntimeServices** - Score will populate this argument with the [ExecutionRuntimeServices](#executionruntimeservices) object.
+.. code:: java
 
-    ```java
     public void doWithServices(ExecutionRuntimeServices    executionRuntimeServices)
-    ```
-    +  **executionContext** - Score will populate this argument with the context tied to the ExecutionPlan during its triggering through the [TriggeringProperties](#triggeringproperties).
 
-    ```java
-    public void doWithContext(Map<String, Serializable> executionContext)
-    ```
+-  **executionContext** - Score will populate this argument with the
+   context tied to the ExecutionPlan during its triggering through the
+   `TriggeringProperties <#triggeringproperties>`__.
+
+.. code:: java
+
+    public void doWithContext(Map<String, Serializable> executionContext) 
 
 If an argument is present in both the `ExecutionStep <#executionstep>`__
 data and the execution context, the value from the execution context

@@ -5,7 +5,7 @@ Goal
 ----
 
 In this lesson we'll outline our overall goals for this tutorial and set
-up our environment to write and run flows.
+up an environment to write and run flows.
 
 Overview
 --------

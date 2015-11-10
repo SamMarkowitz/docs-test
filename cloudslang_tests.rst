@@ -1,6 +1,3 @@
-Tests
-+++++
-
 CloudSlang tests are written to test CloudSlang content and are run
 during the build process by the `CloudSlang Build
 Tool <cloudslang_build_tool.md>`__.

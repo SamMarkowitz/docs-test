@@ -153,6 +153,12 @@ In a case where we want the loop to continue no matter what happens, we
 would have to override the default break on a result of failure by
 mapping the ``break`` key to an empty list (``[]``).
 
+The published ``address`` variable will contain the ``address`` value
+from the last iteration of the loop. We can use at the same way
+published variables are used in regular tasks. However, when using
+loops, you often want to aggregate the published output. We will do that
+in the next lesson.
+
 List Types
 ----------
 

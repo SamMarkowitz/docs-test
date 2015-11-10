@@ -27,6 +27,8 @@ reflect that.
 
     namespace: tutorials.base
 
+The namespace can be used by flows that call this operation.
+
 Operation Name
 --------------
 
@@ -43,7 +45,7 @@ operation must be the same as the name of the file it is stored in.
     YAML Note: Indentation is **very** important in YAML. It is used to
     indicate scope. In the example above, you can see that
     ``name: print`` is indented under the ``operation`` key to denote
-    that it belongs to the operation. Always use spaces to indent.
+    that it belongs to the operation. **Always** use spaces to indent.
     **Never** use tabs.
 
 Inputs
@@ -62,16 +64,27 @@ to print. We'll name our input ``text``.
     list is signified by prepending a hypen and a space (- ) to each
     item.
 
+The values for the inputs are either passed via the `CloudSlang
+CLI <../cloudslang_cli.md>`__, as we do below in this lesson, or from a
+task in a flow, as we will do in the next lesson.
+
+Inputs can also have related parameters, such as ``required``,
+``default``, ``overridable`` and ``system_property``. We will discuss
+these parameters in lessons `8 - Input Parameters <08_lesson.md>`__ and
+`13 - System Properties <13_lesson.md>`__.
+
 Action
 ------
 
 Finally, we've reached the core of the operation, the action. There are
 two types of actions in CloudSlang, Python-based actions and Java-based
-actions. We'll start off by creating a Python action that simply prints
-the text that was input. To do so, we add an ``action`` key that maps to
-the action contents. Since our action is a python script we add a
-key:value pair with ``python_script`` as the key and the script itself
-as the value.
+actions.
+
+We'll start off by creating a Python action that simply prints the text
+that was input. To do so, we add an ``action`` key that maps to the
+action contents. Since our action is a python script we add a key:value
+pair with ``python_script`` as the key and the script itself as the
+value.
 
 .. code:: yaml
 
@@ -81,6 +94,14 @@ as the value.
 **Note:** CloudSlang uses the `Jython <http://www.jython.org/>`__
 implementation of Python 2.7. For information on Jython's limitations,
 see the `Jython FAQ <https://wiki.python.org/jython/JythonFaq>`__.
+
+Python scripts that need 3rd party packages may import them using the
+procedures described in lesson `14 - 3rd Party Python
+Packages <14_lesson.md>`__.
+
+The usage of Java-based actions is beyond the scope of this tutorial.
+For more information, see the `CloudSlang DSL
+reference <../cloudslang_dsl_reference.md#java_action>`__.
 
 Run It
 ------

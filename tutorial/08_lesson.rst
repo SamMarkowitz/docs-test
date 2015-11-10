@@ -66,7 +66,8 @@ by using the following command:
     run --f <folder path>/tutorials/hiring/generate_user_email.sl --i first_name=john,middle_name=e,last_name=doe,domain=somecompany,attempt=1
 
 It may help to uncomment the print line to see what is being output.
-Change the value for ``attempt`` and see what happens.
+Change the value for ``attempt`` in the run command and see what
+happens.
 
 Add to Flow
 -----------
@@ -149,8 +150,8 @@ Let's make the ``middle_name`` optional. We'll have to set its
         - domain
         - attempt
 
-    YAML Note: Don't forget to add a colon (:) to the input name before
-    adding its properties.
+    YAML Note: Don't forget to add a colon (``:``) to the input name
+    before adding its properties.
 
 Default
 -------

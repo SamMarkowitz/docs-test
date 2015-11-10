@@ -33,13 +33,13 @@ Action
 
 This time we'll have a little more of a complex action. The idea here is
 to simulate checking the availability of the given address. We'll import
-and use the Python random module to get a random number between 0 and 2.
-If the random number we get is 0 we'll say the requested email address
-is already taken.
+and use the Python ``random`` module to get a random number between 0
+and 2. If the random number we get is 0 we'll say the requested email
+address is already taken.
 
-We've added a commented out line, using a Python comment (#) to print
-the random number that was generated. We can uncomment this line during
-testing to see that our operation is working as expected.
+We've added a commented-out line, using a Python comment (``#``) to
+print the random number that was generated. We can uncomment this line
+during testing to see that our operation is working as expected.
 
 .. code:: yaml
 
@@ -51,7 +51,7 @@ testing to see that our operation is working as expected.
           #print rand
 
     YAML Note: Since we're writing a multi-line Python script here we
-    use the pipe (\|) character to denote the usage of literal style
+    use the pipe (``|``) character to denote the usage of literal style
     block notation where all newlines will be preserved.
 
 Outputs
@@ -60,14 +60,18 @@ Outputs
 In the outputs section we put any information we want to send back to
 the calling flow. In our case, we want to return whether the requested
 address was already taken. The outputs are a list of key:value pairs
-where the key is the name of the output and the value the expression to
-be returned. In our case, we'll just return the value in the ``vacant``
-variable.
+where the key is the name of the output and the value is the expression
+to be returned. In our case, we'll just return the value in the
+``vacant`` variable.
 
 .. code:: yaml
 
       outputs:
         - available: vacant
+
+At this point we won't be using the output value, but we will soon
+enough. In lesson `5 - Default Navigation <05_lesson.md>`__ we publish
+the the ``available`` output and use it in another task.
 
 Results
 -------
@@ -86,6 +90,12 @@ results.
       results:
         - FAILURE: rand == 0
         - SUCCESS
+
+The results are used by the calling flow for navigation purposes. You
+can see the default navigation rules in action in lessons `5 - Default
+Navigation <05_lesson.md>`__ and `6 - Handling Failure
+Results <06_lesson.md>`__. And you can learn how to create custom
+navigation in lesson `7 - Custom Navigation <07_lesson.md>`__.
 
 Run It
 ------
