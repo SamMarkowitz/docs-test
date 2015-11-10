@@ -1,23 +1,12 @@
-.. Test documentation master file, created by
-   sphinx-quickstart on Thu Nov 05 16:34:18 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to Test's documentation!
+CloudSlang Documentation
 ================================
 
 Contents:
 
 .. toctree::
-    :maxdepth: 2
+   :maxdepth: 2
 
-    cloudslang_dsl_reference
-    cloudslang_cli
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+	Overview <section_overview>
+   	CloudSlang <section_cloudslang>
+  	Developer <section_developer>
+	Tutorial <section_tutorial>

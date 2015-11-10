@@ -49,9 +49,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Test'
-copyright = u'2015, Sam'
-author = u'Sam'
+project = u'CloudSlang Documentation'
+author = u'CloudSlang Team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
