@@ -139,7 +139,7 @@ uses the following annotations from
 
 **Example - CloudSlang call to a Java @Action**
 
-.. code:: yaml
+.. code-block:: yaml
 
     name: pull_image
     inputs:
