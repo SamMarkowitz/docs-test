@@ -24,7 +24,7 @@ There are two types of CloudSlang files:
 -  operation - contains an action that runs a script or method
 
 The following properties are for all types of CloudSlang files. For
-properties specific to `flows <#flow>`__ or `operations <#operation>`__,
+properties specific to `flows <flow>` or `operations <#operation>`__,
 see their respective sections below.
 
 +-----------------+------------+-----------+---------------------------+-------------------------+------------------------------+
